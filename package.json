@@ -1,0 +1,19 @@
+{
+  "name": "messenger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gutskalss/mf.messenger.praktikum.yandex.git"
+  },
+  "author": "Sergey Gutskal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gutskalss/mf.messenger.praktikum.yandex/issues"
+  },
+  "homepage": "https://github.com/gutskalss/mf.messenger.praktikum.yandex#readme"
+}
