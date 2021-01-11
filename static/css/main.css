@@ -1,0 +1,76 @@
+* {
+  outline: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.red {
+  color: #ff2f2f !important;
+}
+.h1 {
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 500;
+  text-align: center;
+  color: #1e1e1e;
+}
+.h2 {
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 500;
+  text-align: center;
+  color: #1e1e1e;
+  margin: 20px 0;
+}
+.h3 {
+  font-size: 15px;
+  font-weight: 500;
+}
+.h3_error {
+  color: #ff2f2f;
+}
+.link {
+  text-decoration: none;
+  font-size: 11px;
+  color: #3369f3;
+}
+.link_danger {
+  color: #ff0000;
+}
+.link_profile {
+  width: 100%;
+  text-align: left;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.hide {
+  display: none !important;
+}
+.hide-scrollbar {
+  overflow-y: auto;
+  scrollbar-width: 0; /* Hide scroll bar in Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  width: 0; /* Hide scroll bar in  Chrome, Edge, and Safari */
+}

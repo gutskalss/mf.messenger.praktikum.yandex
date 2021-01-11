@@ -1,11 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Messenger</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Авторизация</title>
   </head>
   <body>
-    <h1>Messenger</h1>
+    <main id="root">
+      <form action="/chats.html" class="form">
+        <div class="form__top">
+          <h2 class="h2">Вход</h2>
+
+          <label for="login" class="label">
+            <input
+              id="login"
+              name="login"
+              class="input"
+              type="text"
+              placeholder=" "
+            />
+            <span class="label__text">Логин</span>
+            <span class="input__error hide">Неверный логин</span>
+          </label>
+          <label for="password" class="label">
+            <input
+              id="password"
+              name="password"
+              class="input"
+              type="password"
+              placeholder=" "
+            />
+            <span class="label__text">Пароль</span>
+            <span class="input__error hide">Неверный пароль</span>
+          </label>
+        </div>
+
+        <div class="form__bottom">
+          <button
+            class="btn btn_blue btn_submit"
+            type="submit"
+            value="Авторизоваться"
+          >
+            Авторизоваться
+          </button>
+          <a class="link" href="/signup.html">Нет аккаунта?</a>
+        </div>
+      </form>
+    </main>
+    <script src="./js/scripts.js"></script>
   </body>
 </html>

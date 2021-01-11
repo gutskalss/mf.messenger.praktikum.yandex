@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Список чатов</title>
+  </head>
+  <body>
+    <main id="root">
+      <div class="chats">
+        <div class="chats__lside">
+          <div class="chats__lside-head">
+            <div class="chats__profile-link-container">
+              <a class="chats__profile-link" href="/profile.html">
+                Профиль
+                <i class="fas fa-chevron-right"></i>
+              </a>
+            </div>
+            <div class="chats__search">
+              <label class="label label_chats-search">
+                <input
+                  class="input input_chats-search"
+                  type="text"
+                  placeholder=" "
+                />
+                <span class="label__text label__text_chats-search">
+                  <i class="fas fa-search"></i>
+                  <div class="onfocus-hide">Поиск</div>
+                </span>
+              </label>
+            </div>
+          </div>
+          <ul class="chats-list hide-scrollbar">
+            <li class="chat-item">
+              <div class="chat-item__content">
+                <div class="chat-item__logo">
+                  <img src="/img/avatars/Andrei.jpg" alt="Андрей" />
+                </div>
+                <div class="chat-item__text">
+                  <div class="chat-item__title">Андрей</div>
+                  <div class="chat-item__last-message">Изображение</div>
+                </div>
+                <div class="chat-item__time">10:49</div>
+                <div class="chat-item__new-messages">12</div>
+              </div>
+            </li>
+            <li class="chat-item">
+              <div class="chat-item__content">
+                <div class="chat-item__logo">
+                  <img src="/img/avatars/kinoclub.jpg" alt="Киноклуб" />
+                </div>
+                <div class="chat-item__text">
+                  <div class="chat-item__title">Киноклуб</div>
+                  <div class="chat-item__last-message">
+                    <div class="chat-item__own-message">Вы:</div>
+                    стикер
+                  </div>
+                </div>
+                <div class="chat-item__time">12:00</div>
+              </div>
+            </li>
+            <li class="chat-item">
+              <div class="chat-item__content">
+                <div class="chat-item__logo">
+                  <img src="/img/avatars/Ilya.jpg" alt="Илья" />
+                </div>
+                <div class="chat-item__text">
+                  <div class="chat-item__title">Илья</div>
+                  <div class="chat-item__last-message">
+                    Друзья, у меня для вас особенный выпуск новостей!...
+                  </div>
+                </div>
+                <div class="chat-item__time">15:12</div>
+                <div class="chat-item__new-messages">4</div>
+              </div>
+            </li>
+            <li class="chat-item">
+              <div class="chat-item__content chat-item__content_active">
+                <div class="chat-item__logo">
+                  <img src="/img/avatars/Vadim.jpg" alt="Вадим" />
+                </div>
+                <div class="chat-item__text">
+                  <div class="chat-item__title">Вадим</div>
+                  <div class="chat-item__last-message">
+                    <div class="chat-item__own-message">Вы:</div>
+                    Круто!
+                  </div>
+                </div>
+                <div class="chat-item__time">Пт</div>
+              </div>
+            </li>
+            <li class="chat-item">
+              <div class="chat-item__content">
+                <div class="chat-item__logo">
+                  <img src="/img/avatars/tet-a-tet.jpg" alt="тет-а-теты" />
+                </div>
+                <div class="chat-item__text">
+                  <div class="chat-item__title">тет-а-теты</div>
+                  <div class="chat-item__last-message">
+                    И Human Interface Guidelines и Material Design
+                    рекомендуют...
+                  </div>
+                </div>
+                <div class="chat-item__time">Ср</div>
+              </div>
+            </li>
+            <li class="chat-item">
+              <div class="chat-item__content">
+                <div class="chat-item__logo">
+                  <img src="/img/avatars/123.jpg" alt="1, 2, 3" />
+                </div>
+                <div class="chat-item__text">
+                  <div class="chat-item__title">1, 2, 3</div>
+                  <div class="chat-item__last-message">
+                    Миллионы россиян ежедневно проводят десятки часов свое...
+                  </div>
+                </div>
+                <div class="chat-item__time">Пн</div>
+              </div>
+            </li>
+            <li class="chat-item">
+              <div class="chat-item__content">
+                <div class="chat-item__logo">
+                  <img src="/img/avatars/design.jpg" alt="Design Destroyer" />
+                </div>
+                <div class="chat-item__text">
+                  <div class="chat-item__title">Design Destroyer</div>
+                  <div class="chat-item__last-message">
+                    В 2008 году художник Jon Rafman  начал собирать...
+                  </div>
+                </div>
+                <div class="chat-item__time">Пн</div>
+              </div>
+            </li>
+            <li class="chat-item">
+              <div class="chat-item__content">
+                <div class="chat-item__logo">
+                  <img src="/img/avatars/day.jpg" alt="Day." />
+                </div>
+                <div class="chat-item__text">
+                  <div class="chat-item__title">Day.</div>
+                  <div class="chat-item__last-message">
+                    Так увлёкся работой по курсу, что совсем забыл его
+                    анонсир...
+                  </div>
+                </div>
+                <div class="chat-item__time">1 Мая 2020</div>
+              </div>
+            </li>
+            <li class="chat-item">
+              <div class="chat-item__content">
+                <div class="chat-item__logo">
+                  <img src="/img/avatars/Stas.jpg" alt="Стас Рогозин" />
+                </div>
+                <div class="chat-item__text">
+                  <div class="chat-item__title">Стас Рогозин</div>
+                  <div class="chat-item__last-message">
+                    Можно или сегодня или завтра вечером.
+                  </div>
+                </div>
+                <div class="chat-item__time">12 Апр 2020</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="chats__rside">
+          <div class="dialog">
+            <div class="dialog__top-bar">
+              <div class="dialog__title">
+                <div class="dialog__avatar">
+                  <img src="/img/avatars/Vadim.jpg" alt="Вадим" />
+                </div>
+                <div class="dialog__name">Вадим</div>
+              </div>
+
+              <button
+                onclick="toggle('dialog-settings-menu')"
+                class="btn btn_settings"
+              >
+                <i class="fas fa-ellipsis-v"></i>
+              </button>
+              <ul
+                id="dialog-settings-menu"
+                class="toggle-menu toggle-menu_dialog-settings hide"
+              >
+                <li class="toggle-menu__item">
+                  <button
+                    onclick="toggle('addUserModal')"
+                    class="btn btn_toggle-menu"
+                  >
+                    <i class="toggle-menu__icon far fa-plus-square"></i>
+                    Добавить пользователя
+                  </button>
+                </li>
+                <li class="toggle-menu__item">
+                  <button
+                    onclick="toggle('removeUserModal')"
+                    class="btn btn_toggle-menu"
+                  >
+                    <i class="toggle-menu__icon far fa-times-circle"></i>
+                    Удалить пользователя
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <div class="dialog__content hide-scrollbar">
+              <div
+                class="dialog__messages-container dialog__messages-container_own"
+              >
+                <div class="dialog__message dialog__message_own">
+                  Спасибо!
+                  <span class="dialog__message-info">
+                    <span class="dialog__message-status">
+                      <img src="./img/status-read.svg" alt="" />
+                    </span>
+                    <span class="dialog__message-time">12:00</span>
+                  </span>
+                </div>
+                <div class="dialog__message dialog__message_own">
+                  Интересно!
+                  <span class="dialog__message-info">
+                    <span class="dialog__message-status">
+                      <img src="./img/status-read.svg" alt="" />
+                    </span>
+                    <span class="dialog__message-time">12:00</span>
+                  </span>
+                </div>
+                <div class="dialog__message dialog__message_own">
+                  Круто!
+                  <span class="dialog__message-info">
+                    <span class="dialog__message-status">
+                      <img src="./img/status-read.svg" alt="" />
+                    </span>
+                    <span class="dialog__message-time">12:00</span>
+                  </span>
+                </div>
+              </div>
+              <div class="dialog__messages-container">
+                <div class="dialog__message dialog__message_image">
+                  <img src="./img/dialog-photo.jpg" alt="Photo" />
+                  <span class="dialog__message-info dialog__message-info_image">
+                    <div class="dialog__message-time">11:56</div>
+                  </span>
+                </div>
+                <div class="dialog__message">
+                  <span class="dialog__message-text">
+                    Привет! Смотри, тут всплыл интересный кусок лунной
+                    космической истории — НАСА в какой-то момент попросила
+                    Хассельблад адаптировать модель SWC для полетов на Луну.
+                    Сейчас мы все знаем что астронавты летали с моделью 500 EL —
+                    и к слову говоря, все тушки этих камер все еще находятся на
+                    поверхности Луны, так как астронавты с собой забрали только
+                    кассеты с пленкой.
+                    <br /><br />
+                    Хассельблад в итоге адаптировал SWC для космоса, но что-то
+                    пошло не так и на ракету они так никогда и не попали. Всего
+                    их было произведено 25 штук, одну из них недавно продали на
+                    аукционе за 45000 евро.
+                  </span>
+
+                  <span class="dialog__message-info">
+                    <span class="dialog__message-time">11:56</span>
+                  </span>
+                </div>
+              </div>
+              <div class="dialog__date">19 июня</div>
+            </div>
+            <div class="dialog__bottom-bar">
+              <form class="dialog__create-message-form" action="#">
+                <ul
+                  id="attach-methods-menu"
+                  class="toggle-menu toggle-menu_attach-methods hide"
+                >
+                  <li class="toggle-menu__item">
+                    <button type="button" class="btn btn_toggle-menu">
+                      <i class="toggle-menu__icon far fa-images"></i>
+                      Фото или Видео
+                    </button>
+                  </li>
+                  <li class="toggle-menu__item">
+                    <button type="button" class="btn btn_toggle-menu">
+                      <i class="toggle-menu__icon fas fa-file-upload"></i>
+                      Файл
+                    </button>
+                  </li>
+                  <li class="toggle-menu__item">
+                    <button type="button" class="btn btn_toggle-menu">
+                      <i class="toggle-menu__icon fas fa-map-marker-alt"></i>
+                      Локация
+                    </button>
+                  </li>
+                </ul>
+                <button
+                  type="button"
+                  onclick="toggle('attach-methods-menu')"
+                  class="btn btn_attach"
+                >
+                  <i class="fas fa-paperclip"></i>
+                </button>
+                <div class="dialog__new-message-input">
+                  <input
+                    class="input input_new-message"
+                    placeholder="Сообщение"
+                    type="text"
+                    id="message"
+                    name="message"
+                  />
+                </div>
+                <button type="submit" class="btn btn_round btn_blue">
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="addUserModal" class="modal hide">
+      <form action="#" class="form form_modal">
+        <div class="form__top">
+          <h2 class="h3">Добавить пользователя</h2>
+        </div>
+
+        <div class="form__bottom">
+          <label class="label" for="add-user">
+            <input
+              class="input"
+              type="text"
+              placeholder=" "
+              id="add-user"
+              name="add-user"
+            />
+            <span class="label__text">Логин</span>
+            <span class="input__error hide">Неверный логин</span>
+          </label>
+
+          <button
+            class="btn btn_blue btn_submit"
+            type="submit"
+            value="Добавить"
+          >
+            Добавить
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div id="removeUserModal" class="modal hide">
+      <form action="#" class="form form_modal">
+        <div class="form__top">
+          <h2 class="h3">Удалить пользователя</h2>
+        </div>
+
+        <div class="form__bottom">
+          <label for="remove-user" class="label">
+            <input
+              class="input"
+              type="text"
+              placeholder=" "
+              id="remove-user"
+              name="remove-user"
+            />
+            <span class="label__text">Логин</span>
+            <span class="input__error hide">Неверный логин</span>
+          </label>
+
+          <button class="btn btn_blue btn_submit" type="submit" value="Удалить">
+            Удалить
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script src="./js/scripts.js"></script>
+  </body>
+</html>

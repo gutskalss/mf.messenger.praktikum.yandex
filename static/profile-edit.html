@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Список чатов</title>
+  </head>
+  <body>
+    <main id="root">
+      <div class="profile">
+        <button class="btn btn_left-bar">
+          <div class="btn btn_blue btn_round">
+            <i class="fas fa-arrow-left"></i>
+          </div>
+        </button>
+        <div class="profile__container hide-scrollbar">
+          <div class="profile__data">
+            <div onclick="toggle('changeAvatarModal')" class="profile__avatar">
+              <i class="fas fa-camera"></i>
+            </div>
+            <div class="profile__name">Сергей</div>
+
+            <form class="form_profile-edit" action="#">
+              <ul class="profile__list">
+                <li class="profile__list-item">
+                  <div class="profile__data-item">Почта</div>
+                  <div class="profile__data-value">
+                    <input
+                      type="email"
+                      class="input_profile-edit"
+                      value="pochta@yandex.ru"
+                      id="email"
+                      name="email"
+                    />
+                  </div>
+                </li>
+                <li class="profile__list-item">
+                  <div class="profile__data-item">Логин</div>
+                  <div class="profile__data-value">
+                    <input
+                      type="text"
+                      class="input_profile-edit"
+                      value="ivanivanov"
+                      id="login"
+                      name="login"
+                    />
+                  </div>
+                </li>
+                <li class="profile__list-item">
+                  <div class="profile__data-item">Имя</div>
+                  <div class="profile__data-value">
+                    <input
+                      type="text"
+                      class="input_profile-edit"
+                      value="Сергей"
+                      id="first_name"
+                      name="first_name"
+                    />
+                  </div>
+                </li>
+                <li class="profile__list-item">
+                  <div class="profile__data-item">Фамилия</div>
+                  <div class="profile__data-value">
+                    <input
+                      type="text"
+                      class="input_profile-edit"
+                      value="Гуцкал"
+                      id="second_name"
+                      surname="second_name"
+                    />
+                  </div>
+                </li>
+                <li class="profile__list-item">
+                  <div class="profile__data-item">Имя в чате</div>
+                  <div class="profile__data-value">
+                    <input
+                      type="text"
+                      class="input_profile-edit"
+                      value="Сергей"
+                      id="display_name"
+                      name="display_name"
+                    />
+                  </div>
+                </li>
+                <li class="profile__list-item">
+                  <div class="profile__data-item">Телефон</div>
+                  <div class="profile__data-value">
+                    <input
+                      type="tel"
+                      class="input_profile-edit"
+                      value="+7 (909) 967 30 30"
+                      id="phone"
+                      name="phone"
+                    />
+                  </div>
+                </li>
+              </ul>
+              <button class="btn btn_submit btn_blue" type="submit">
+                Сохранить
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="changeAvatarModal" class="modal hide">
+      <form action="#" class="form form_modal">
+        <h2 class="h3">Загрузите файл</h2>
+        <h2 class="h3 h3_error hide">Ошибка, попробуйте ещё раз</h2>
+
+        <label for="avatar" class="label_file-input addLabel">
+          <input class="input_file" type="file" name="avatar" id="avatar" />
+        </label>
+
+        <button class="btn btn_submit btn_blue" type="submit" value="Добавить">
+          Поменять
+        </button>
+      </form>
+    </div>
+
+    <script src="./js/scripts.js"></script>
+  </body>
+</html>
