@@ -18,7 +18,7 @@ Open http://localhost:3000 and enjoy
 
 ## Demo on [netlify](https://bestmessenger.netlify.app/)
 
-### Pages
+Pages:
 
 - [Login](https://bestmessenger.netlify.app/)
 - [Signup](https://bestmessenger.netlify.app/signup.html)
