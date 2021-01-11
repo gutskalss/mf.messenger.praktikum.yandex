@@ -93,7 +93,6 @@
   display: flex;
   cursor: pointer;
 }
-.chat-item__content:hover,
 .chat-item__content_active {
   background-color: #e4edfd;
 }
@@ -142,6 +141,13 @@
   right: 10px;
   min-width: 20px;
   text-align: center;
+}
+.chat-item__content:hover .chat-item__time,
+.chat-item__content:hover .chat-item__new-messages {
+  display: none;
+}
+.chat-item__content:hover .btn_chat-delete {
+  display: block;
 }
 .chat-item:first-child::before,
 .chat-item::after {
