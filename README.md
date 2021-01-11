@@ -2,7 +2,7 @@
 
 ## Description
 
-Massenger on vanilla JS.
+Messenger on vanilla JS.
 
 ## Install and start
 
