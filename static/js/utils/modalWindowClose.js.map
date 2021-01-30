@@ -1,0 +1,1 @@
+{"version":3,"file":"modalWindowClose.js","sourceRoot":"","sources":["../../../src/utils/modalWindowClose.ts"],"names":[],"mappings":"AAAA,OAAO,MAAM,MAAM,oBAAoB,CAAA;AAGvC,QAAQ,CAAC,gBAAgB,CACvB,OAAO,EACP,UAAU,KAAiB;IACzB,IAAkB,KAAK,CAAC,MAAO,CAAC,SAAS,CAAC,QAAQ,CAAC,OAAO,CAAC,EAAE;QAC3D,MAAM,CAAe,KAAK,CAAC,MAAO,CAAC,EAAE,CAAC,CAAA;KACvC;AACH,CAAC,EACD,KAAK,CACN,CAAA"}

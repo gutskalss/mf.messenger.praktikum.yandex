@@ -12,101 +12,10 @@
     <title>Регистрация</title>
   </head>
   <body>
-    <main id="root">
-      <form action="/chats.html" class="form">
-        <div class="form__top">
-          <h2 class="h2">Регистрация</h2>
+    <main id="root"></main>
 
-          <label class="label" for="email">
-            <input
-              id="email"
-              name="email"
-              class="input"
-              type="email"
-              placeholder=" "
-            />
-            <span class="label__text">Почта</span>
-            <span class="input__error hide">Неверный формат email</span>
-          </label>
-          <label for="login" class="label">
-            <input
-              id="login"
-              name="login"
-              class="input"
-              type="text"
-              placeholder=" "
-            />
-            <span class="label__text">Логин</span>
-            <span class="input__error hide">Мин. 6 символов</span>
-          </label>
-          <label for="first_name" class="label">
-            <input
-              id="first_name"
-              name="first_name"
-              class="input"
-              type="text"
-              placeholder=" "
-            />
-            <span class="label__text">Имя</span>
-            <span class="input__error hide"></span>
-          </label>
-          <label for="second_name" class="label">
-            <input
-              id="second_name"
-              name="second_name"
-              class="input"
-              type="text"
-              placeholder=" "
-            />
-            <span class="label__text">Фамилия</span>
-            <span class="input__error hide"></span>
-          </label>
-          <label for="phone" class="label">
-            <input
-              id="phone"
-              name="phone"
-              class="input"
-              type="tel"
-              placeholder=" "
-            />
-            <span class="label__text">Телефон</span>
-            <span class="input__error hide"></span>
-          </label>
-          <label for="password" class="label">
-            <input
-              id="password"
-              name="password"
-              class="input red"
-              type="password"
-              placeholder=" "
-            />
-            <span class="label__text">Пароль</span>
-          </label>
-          <label for="password_repeat" class="label">
-            <input
-              id="password_repeat"
-              name="password_repeat"
-              class="input red"
-              type="password"
-              placeholder=" "
-            />
-            <span class="label__text">Пароль (еще раз)</span>
-            <span class="input__error hide">Пароли не совпадают</span>
-          </label>
-        </div>
-
-        <div class="form__bottom">
-          <button
-            class="btn btn_blue btn_submit"
-            type="submit"
-            value="Зарегистрироваться"
-          >
-            Зарегистрироваться
-          </button>
-          <a class="link" href="/index.html">Войти</a>
-        </div>
-      </form>
-    </main>
-    <script src="./js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script type="module" src="./js/pages/signup.js"></script>
+    <script type="module" src="./js/common.js"></script>
   </body>
 </html>
