@@ -1,9 +1,13 @@
+type Callback = () => void
+
 class EventBus {
+  listeners: { [event: string]: Callback[] }
+
   constructor() {
     this.listeners = {}
   }
 
-  on(event, callback) {
+  on(event: string, callback: Callback) {
     if (!this.listeners[event]) {
       this.listeners[event] = []
     }
@@ -11,7 +15,7 @@ class EventBus {
     this.listeners[event].push(callback)
   }
 
-  off(event, callback) {
+  off(event: string, callback: Callback) {
     if (!this.listeners[event]) {
       throw new Error(`Нет события: ${event}`)
     }
@@ -21,7 +25,7 @@ class EventBus {
     )
   }
 
-  emit(event, ...args) {
+  emit(event: string, ...args) {
     if (!this.listeners[event]) {
       throw new Error(`Нет события: ${event}`)
     }

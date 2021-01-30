@@ -5,10 +5,10 @@ export default function toggle(elementId: string) {
   }
 }
 
-document.querySelectorAll('[data-toggle-id]').forEach(item => {
+document.querySelectorAll('[data-toggle-id]').forEach((item: HTMLElement) => {
   item.addEventListener('click', function (event) {
     event.preventDefault()
-
-    toggle(event.currentTarget.dataset.toggleId)
+    const element = event.currentTarget as HTMLElement
+    toggle(element.dataset.toggleId as string)
   })
 })

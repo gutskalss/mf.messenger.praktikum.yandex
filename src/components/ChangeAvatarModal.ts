@@ -1,4 +1,4 @@
-import Block from './Block.js'
+import Block, { ComponentProps } from './Block.js'
 import Input from './Input.js'
 import Button from './Button.js'
 import ProfileData from '../services/ProfileData.js'
@@ -22,17 +22,12 @@ const changeAvatarTemplate = Handlebars.compile(`
 </div>
 `)
 
-export default class ModalWindow extends Block {
-  constructor(props) {
+export default class ChangeAvatarModal extends Block {
+  constructor(public props: ComponentProps) {
     super('div', props)
   }
 
   render() {
-    switch (this.props.template) {
-      case 'changeAvatar':
-        return changeAvatarTemplate()
-      default:
-        return regularTemplate(this.props)
-    }
+    return changeAvatarTemplate()
   }
 }

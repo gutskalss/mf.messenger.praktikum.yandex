@@ -14,27 +14,33 @@ document.querySelectorAll('form').forEach(item => {
     event.preventDefault()
     const data = serialize(event.target)
 
-    validateForm(event.target)
+    validateForm(event.target as HTMLFormElement)
 
     console.log(data)
   })
 })
 
 document.querySelectorAll('[data-validate').forEach(item => {
-  addMultipleListeners(item, ['focus', 'blur'], function (event) {
-    event.preventDefault()
-    validateInput(event.target)
-  })
+  addMultipleListeners(
+    item as HTMLElement,
+    ['focus', 'blur'],
+    function (event) {
+      event.preventDefault()
+      validateInput(event.target as HTMLInputElement)
+    }
+  )
 })
 
-function validateForm(form) {
+function validateForm(form: HTMLFormElement) {
   Array.from((<HTMLElement>form).querySelectorAll('input')).map(input => {
     validateInput(input)
   })
 }
 
-function validateInput(input) {
-  const errorElement = input.parentNode.querySelector('.input__error')
+function validateInput(input: HTMLInputElement) {
+  const errorElement = input.parentNode.querySelector(
+    '.input__error'
+  ) as HTMLDivElement
   const value = input.value
 
   switch (input.dataset.validate) {
@@ -59,7 +65,7 @@ function validateInput(input) {
   }
 }
 
-function toggleError(element, regex, value) {
+function toggleError(element: HTMLElement, regex: RegExp, value: string) {
   if (!regex.test(value)) {
     element.classList.remove('hide')
   } else {

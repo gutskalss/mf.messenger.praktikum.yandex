@@ -82,6 +82,7 @@ const cleanTemplate = Handlebars.compile(`
 export default class Input extends Block {
     constructor(props) {
         super('div', props);
+        this.props = props;
     }
     render() {
         switch (this.props.template) {

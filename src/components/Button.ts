@@ -1,4 +1,4 @@
-import Block from './Block.js'
+import Block, { ComponentProps } from './Block.js'
 
 const templateString = `
 <button
@@ -28,7 +28,7 @@ const sidebarTemplate = Handlebars.compile(`
 `)
 
 export default class Button extends Block {
-  constructor(props) {
+  constructor(public props: ComponentProps) {
     super('div', props)
   }
 

@@ -7,6 +7,7 @@ const template = Handlebars.compile(`
 export default class ProfileAvatar extends Block {
     constructor(props) {
         super('div', props);
+        this.props = props;
     }
     render() {
         return template();

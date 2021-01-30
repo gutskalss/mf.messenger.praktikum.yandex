@@ -1,23 +1,22 @@
 import EventBus from '../utils/eventBus.js';
 export default class Block {
-    constructor(tagName = 'div', props = {}) {
-        this._element = null;
-        this._meta = null;
+    constructor(tagName = 'div', props) {
+        this.props = props;
+        this.eventBus = new EventBus();
         this.setProps = nextProps => {
             if (!nextProps) {
                 return;
             }
             Object.assign(this.props, nextProps);
         };
-        const eventBus = new EventBus();
+        this.eventBus = new EventBus();
         this._meta = {
             tagName,
             props,
         };
         this.props = this._makePropsProxy(props);
-        this.eventBus = () => eventBus;
-        this._registerEvents(eventBus);
-        eventBus.emit(Block.EVENTS.INIT);
+        this._registerEvents(this.eventBus);
+        this.eventBus.emit(Block.EVENTS.INIT);
     }
     _registerEvents(eventBus) {
         eventBus.on(Block.EVENTS.INIT, this.init.bind(this));
@@ -31,11 +30,11 @@ export default class Block {
     }
     init() {
         this._createResources();
-        this.eventBus().emit(Block.EVENTS.FLOW_CDM);
+        this.eventBus.emit(Block.EVENTS.FLOW_CDM);
     }
     _componentDidMount() {
-        this.componentDidMount();
-        this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
+        this.componentDidMount('');
+        this.eventBus.emit(Block.EVENTS.FLOW_RENDER);
     }
     componentDidMount(oldProps) { }
     _componentDidUpdate(oldProps, newProps) {
@@ -52,7 +51,9 @@ export default class Block {
         const block = this.render();
         this._element.innerHTML = block;
     }
-    render() { }
+    render() {
+        return '';
+    }
     getContent() {
         return this.element;
     }
@@ -62,7 +63,7 @@ export default class Block {
             set(target, prop, value) {
                 const oldProps = Object.assign({}, target);
                 target[prop] = value;
-                self.eventBus().emit(Block.EVENTS.FLOW_CDU, oldProps, target);
+                self.eventBus.emit(Block.EVENTS.FLOW_CDU, oldProps, target);
                 return true;
             },
             deleteProperty() {

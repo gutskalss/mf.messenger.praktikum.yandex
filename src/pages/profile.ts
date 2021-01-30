@@ -3,7 +3,7 @@ import ProfileData from '../services/ProfileData.js'
 import ProfileDataList from '../components/ProfileDataList.js'
 import Button from '../components/Button.js'
 import ProfileAvatar from '../components/ProfileAvatar.js'
-import ModalWindow from '../components/ModalWindow.js'
+import ChangeAvatarModal from '../components/ChangeAvatarModal.js'
 
 const { data: profileData } = ProfileData()
 
@@ -12,7 +12,7 @@ const profileAvatar = new ProfileAvatar({})
 const profileDataListTemplate = new ProfileDataList({
   profileData,
 })
-const modalWindow = new ModalWindow({ template: 'changeAvatar' })
+const changeAvatarModal = new ChangeAvatarModal({})
 
 const template = `
     <div class="profile">
@@ -42,7 +42,7 @@ const template = `
       </div>
     </div>
   </div>
-  ${modalWindow.render()}
+  ${changeAvatarModal.render()}
 `
 
 const pageTemplate = Handlebars.compile(template)

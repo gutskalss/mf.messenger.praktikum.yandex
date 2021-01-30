@@ -26,6 +26,7 @@ const sidebarTemplate = Handlebars.compile(`
 export default class Button extends Block {
     constructor(props) {
         super('div', props);
+        this.props = props;
     }
     render() {
         switch (this.props.template) {

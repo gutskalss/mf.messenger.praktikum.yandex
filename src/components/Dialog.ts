@@ -1,8 +1,11 @@
-import Block from './Block.js'
+import Block, { ComponentProps } from './Block.js'
 
-Handlebars.registerHelper('ifType', function (arg1, arg2, options) {
-  return arg1 == arg2 ? options.fn(this) : options.inverse(this)
-})
+Handlebars.registerHelper(
+  'ifType',
+  function (arg1: string, arg2: string, options) {
+    return arg1 == arg2 ? options.fn(this) : options.inverse(this)
+  }
+)
 
 const template = Handlebars.compile(`
 <div class="dialog__content hide-scrollbar">
@@ -60,7 +63,7 @@ const template = Handlebars.compile(`
 `)
 
 export default class Dialog extends Block {
-  constructor(props) {
+  constructor(public props: ComponentProps) {
     super('div', props)
   }
 

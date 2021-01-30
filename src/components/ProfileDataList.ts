@@ -1,4 +1,4 @@
-import Block from './Block.js'
+import Block, { ComponentProps } from './Block.js'
 
 const template = Handlebars.compile(`
 <ul class="profile__list">
@@ -12,7 +12,7 @@ const template = Handlebars.compile(`
 `)
 
 export default class ProfileDataList extends Block {
-  constructor(props) {
+  constructor(public props: ComponentProps) {
     super('div', props)
   }
 

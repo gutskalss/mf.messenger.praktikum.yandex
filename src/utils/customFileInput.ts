@@ -3,9 +3,9 @@ function customFileInput(fileInputs: NodeListOf<Element>) {
     const fileInputParent: (Node & ParentNode) | null = fileInput.parentNode
     ;(<HTMLElement>fileInputParent).classList.add('addLabel')
 
-    fileInput.addEventListener('change', function (this: HTMLElement) {
+    fileInput.addEventListener('change', function (this: HTMLInputElement) {
       const files = []
-      for (const file of Array.from(this.files)) {
+      for (const file of Array.from(this.files as FileList)) {
         files.push((<File>file).name)
       }
 

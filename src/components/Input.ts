@@ -1,4 +1,4 @@
-import Block from './Block.js'
+import Block, { ComponentProps } from './Block.js'
 
 const template = Handlebars.compile(`
 {{#if inputs}}
@@ -86,7 +86,7 @@ const cleanTemplate = Handlebars.compile(`
 `)
 
 export default class Input extends Block {
-  constructor(props) {
+  constructor(public props: ComponentProps) {
     super('div', props)
   }
 

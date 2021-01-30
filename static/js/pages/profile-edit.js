@@ -3,7 +3,7 @@ import ProfileData from '../services/ProfileData.js';
 import Button from '../components/Button.js';
 import Input from '../components/Input.js';
 import ProfileAvatar from '../components/ProfileAvatar.js';
-import ModalWindow from '../components/ModalWindow.js';
+import ChangeAvatarModal from '../components/ChangeAvatarModal.js';
 const profileData = ProfileData();
 const sidebarButtonTemplate = new Button({ template: 'sidebar' });
 const profileAvatar = new ProfileAvatar({});
@@ -12,7 +12,7 @@ const changeProfileInputs = new Input({
     inputs: profileData.data,
 });
 const submitButtonTemplate = new Button(profileData.saveButton);
-const modalWindow = new ModalWindow({ template: 'changeAvatar' });
+const changeAvatarModal = new ChangeAvatarModal({});
 const template = `
     <div class="profile">
     ${sidebarButtonTemplate.render()}
@@ -29,7 +29,7 @@ const template = `
       </div>
     </div>
   </div>
-  ${modalWindow.render()}
+  ${changeAvatarModal.render()}
 `;
 const pageTemplate = Handlebars.compile(template);
 render('#root', pageTemplate());

@@ -4,10 +4,11 @@ export default function toggle(elementId) {
         element.classList.toggle('hide');
     }
 }
-document.querySelectorAll('[data-toggle-id]').forEach(item => {
+document.querySelectorAll('[data-toggle-id]').forEach((item) => {
     item.addEventListener('click', function (event) {
         event.preventDefault();
-        toggle(event.currentTarget.dataset.toggleId);
+        const element = event.currentTarget;
+        toggle(element.dataset.toggleId);
     });
 });
 //# sourceMappingURL=toggleElement.js.map

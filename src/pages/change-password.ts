@@ -3,7 +3,7 @@ import ProfileData from '../services/ProfileData.js'
 import Button from '../components/Button.js'
 import Input from '../components/Input.js'
 import ProfileAvatar from '../components/ProfileAvatar.js'
-import ModalWindow from '../components/ModalWindow.js'
+import ChangeAvatarModal from '../components/ChangeAvatarModal.js'
 
 const profileData = ProfileData()
 
@@ -14,7 +14,7 @@ const changePasswordInputs = new Input({
   inputs: profileData.changePasswordData,
 })
 const submitButtonTemplate = new Button(profileData.saveButton)
-const modalWindow = new ModalWindow({ template: 'changeAvatar' })
+const changeAvatarModal = new ChangeAvatarModal({})
 
 const template = `
     <div class="profile">
@@ -32,7 +32,7 @@ const template = `
       </div>
     </div>
   </div>
-  ${modalWindow.render()}
+  ${changeAvatarModal.render()}
 `
 
 const pageTemplate = Handlebars.compile(template)

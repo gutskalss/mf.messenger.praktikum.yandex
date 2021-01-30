@@ -35,6 +35,7 @@ const template = Handlebars.compile(`
 export default class ChatsList extends Block {
     constructor(props) {
         super('div', props);
+        this.props = props;
     }
     render() {
         return template(this.props);

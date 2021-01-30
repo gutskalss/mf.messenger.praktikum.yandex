@@ -1,4 +1,4 @@
-import Block from './Block.js'
+import Block, { ComponentProps } from './Block.js'
 
 const template = Handlebars.compile(`
 <div data-toggle-id="changeAvatarModal" class="profile__avatar">
@@ -7,7 +7,7 @@ const template = Handlebars.compile(`
 `)
 
 export default class ProfileAvatar extends Block {
-  constructor(props) {
+  constructor(public props: ComponentProps) {
     super('div', props)
   }
 

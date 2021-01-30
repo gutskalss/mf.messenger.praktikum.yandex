@@ -1,4 +1,4 @@
-import Block from './Block.js'
+import Block, { ComponentProps } from './Block.js'
 
 const template = Handlebars.compile(`
 <div class="error-page">
@@ -11,7 +11,7 @@ const template = Handlebars.compile(`
 `)
 
 export default class ErrorMessage extends Block {
-  constructor(props) {
+  constructor(public props: ComponentProps) {
     super('div', props)
   }
 

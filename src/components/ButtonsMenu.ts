@@ -1,4 +1,4 @@
-import Block from './Block.js'
+import Block, { ComponentProps } from './Block.js'
 import { templateString as buttonTemplateString } from './Button.js'
 
 const template = Handlebars.compile(`
@@ -15,7 +15,7 @@ const template = Handlebars.compile(`
 `)
 
 export default class ButtonsMenu extends Block {
-  constructor(props) {
+  constructor(public props: ComponentProps) {
     super('div', props)
   }
 

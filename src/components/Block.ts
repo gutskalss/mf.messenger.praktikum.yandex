@@ -1,5 +1,44 @@
 import EventBus from '../utils/eventBus.js'
 
+export interface ComponentProps {
+  template?: string
+  classList?: string
+  type?: string
+  value?: string
+  text?: string
+  inputs?: {
+    name: string
+    value: string
+    label: string
+    type: string
+    id: string
+  }[]
+  chatsList?: {
+    avatar: {
+      link: string
+      alt: string
+    }
+    name: string
+    own: boolean
+    lastMessage: string
+    time: string
+    unreaded: number
+    active: boolean
+  }[]
+  chats?: {
+    avatar: {
+      link: string
+      alt: string
+    }
+    name: string
+    own: boolean
+    lastMessage: string
+    time: string
+    unreaded: number
+    active: boolean
+  }[]
+}
+
 export default class Block {
   static EVENTS = {
     INIT: 'init',
@@ -8,11 +47,16 @@ export default class Block {
     FLOW_RENDER: 'flow:render',
   }
 
-  _element = null
-  _meta = null
+  _element: HTMLElement
+  _meta: {
+    tagName: string
+    props: object
+  }
 
-  constructor(tagName = 'div', props = {}) {
-    const eventBus = new EventBus()
+  eventBus: EventBus = new EventBus()
+
+  constructor(tagName = 'div', public props: object) {
+    this.eventBus = new EventBus()
     this._meta = {
       tagName,
       props,
@@ -20,13 +64,11 @@ export default class Block {
 
     this.props = this._makePropsProxy(props)
 
-    this.eventBus = () => eventBus
-
-    this._registerEvents(eventBus)
-    eventBus.emit(Block.EVENTS.INIT)
+    this._registerEvents(this.eventBus as EventBus)
+    this.eventBus.emit(Block.EVENTS.INIT)
   }
 
-  _registerEvents(eventBus) {
+  _registerEvents(eventBus: EventBus) {
     eventBus.on(Block.EVENTS.INIT, this.init.bind(this))
     eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this))
     eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this))
@@ -40,21 +82,21 @@ export default class Block {
 
   init() {
     this._createResources()
-    this.eventBus().emit(Block.EVENTS.FLOW_CDM)
+    this.eventBus.emit(Block.EVENTS.FLOW_CDM)
   }
 
   _componentDidMount() {
-    this.componentDidMount()
-    this.eventBus().emit(Block.EVENTS.FLOW_RENDER)
+    this.componentDidMount('')
+    this.eventBus.emit(Block.EVENTS.FLOW_RENDER)
   }
 
-  componentDidMount(oldProps) {}
+  componentDidMount(oldProps: string) {}
 
-  _componentDidUpdate(oldProps, newProps) {
+  _componentDidUpdate(oldProps: string, newProps: string) {
     const response = this.componentDidUpdate(oldProps, newProps)
   }
 
-  componentDidUpdate(oldProps, newProps) {
+  componentDidUpdate(oldProps: string, newProps: string) {
     this._render()
 
     return true
@@ -73,25 +115,27 @@ export default class Block {
   }
 
   _render() {
-    const block = this.render()
-    this._element.innerHTML = block
+    const block: string = this.render()
+
+    ;(this._element as HTMLDivElement).innerHTML = block
   }
 
-  render() {}
+  render() {
+    return ''
+  }
 
   getContent() {
     return this.element
   }
 
-  _makePropsProxy(props) {
+  _makePropsProxy(props: object) {
     const self = this
 
     props = new Proxy(props, {
       set(target, prop, value) {
         const oldProps = { ...target }
         target[prop] = value
-        self.eventBus().emit(Block.EVENTS.FLOW_CDU, oldProps, target)
-
+        self.eventBus.emit(Block.EVENTS.FLOW_CDU, oldProps, target)
         return true
       },
       deleteProperty() {
@@ -102,7 +146,7 @@ export default class Block {
     return props
   }
 
-  _createDocumentElement(tagName) {
+  _createDocumentElement(tagName: string) {
     return document.createElement(tagName)
   }
 

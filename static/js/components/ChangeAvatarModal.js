@@ -18,17 +18,13 @@ const changeAvatarTemplate = Handlebars.compile(`
   </form>
 </div>
 `);
-export default class ModalWindow extends Block {
+export default class ChangeAvatarModal extends Block {
     constructor(props) {
         super('div', props);
+        this.props = props;
     }
     render() {
-        switch (this.props.template) {
-            case 'changeAvatar':
-                return changeAvatarTemplate();
-            default:
-                return regularTemplate(this.props);
-        }
+        return changeAvatarTemplate();
     }
 }
-//# sourceMappingURL=ModalWindow.js.map
+//# sourceMappingURL=ChangeAvatarModal.js.map
