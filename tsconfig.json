@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "static/js",
-    "rootDir": "src",
+    "rootDir": "src/ts",
     "removeComments": true,
     "target": "es6",
     "module": "es2015",

@@ -1,6 +1,15 @@
-import EventBus from '../utils/eventBus.js';
-export default class Block {
-    constructor(tagName = 'div', props) {
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+import { EventBus } from '../utils/eventBus.js';
+class Block {
+    constructor(tagName = 'div', props = {}) {
         this.props = props;
         this.eventBus = new EventBus();
         this.setProps = nextProps => {
@@ -52,7 +61,9 @@ export default class Block {
         this._element.innerHTML = block;
     }
     render() {
-        return '';
+        return __awaiter(this, void 0, void 0, function* () {
+            return '';
+        });
     }
     getContent() {
         return this.element;
@@ -75,6 +86,7 @@ export default class Block {
     _createDocumentElement(tagName) {
         return document.createElement(tagName);
     }
+    addEvents() { }
     show() {
         this._element.style.display = 'block';
     }
@@ -88,4 +100,5 @@ Block.EVENTS = {
     FLOW_CDU: 'flow:component-did-update',
     FLOW_RENDER: 'flow:render',
 };
+export { Block };
 //# sourceMappingURL=Block.js.map

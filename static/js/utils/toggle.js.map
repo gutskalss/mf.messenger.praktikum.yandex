@@ -1,0 +1,1 @@
+{"version":3,"file":"toggle.js","sourceRoot":"","sources":["../../../src/ts/utils/toggle.ts"],"names":[],"mappings":"AAAA,SAAS,MAAM,CAAC,SAAiB;IAC/B,MAAM,OAAO,GAAG,QAAQ,CAAC,cAAc,CAAC,SAAS,CAAC,CAAA;IAClD,IAAI,OAAO,EAAE;QACX,OAAO,CAAC,SAAS,CAAC,MAAM,CAAC,MAAM,CAAC,CAAA;KACjC;AACH,CAAC;AAED,OAAO,EAAE,MAAM,EAAE,CAAA"}

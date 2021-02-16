@@ -1,4 +1,4 @@
-import Block from './Block.js';
+import { Block } from './Block.js';
 const template = Handlebars.compile(`
 <ul class="profile__list">
   {{#each profileData}}
@@ -9,8 +9,8 @@ const template = Handlebars.compile(`
   {{/each}}
 </ul>
 `);
-export default class ProfileDataList extends Block {
-    constructor(props) {
+class ProfileDataList extends Block {
+    constructor(props = {}) {
         super('div', props);
         this.props = props;
     }
@@ -18,4 +18,5 @@ export default class ProfileDataList extends Block {
         return template(this.props);
     }
 }
+export { ProfileDataList };
 //# sourceMappingURL=ProfileDataList.js.map

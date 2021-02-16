@@ -1,0 +1,102 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  width: 100%;
+  max-width: 340px;
+  min-height: 460px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.14);
+  border-radius: 12px;
+  padding: 30px;
+  background-color: #fff;
+
+  &_profile-edit {
+    width: 100%;
+  }
+}
+
+.label {
+  position: relative;
+  display: inline-block;
+  margin: 20px 0;
+  width: 100%;
+
+  &_file-input {
+    position: relative;
+    color: #8d8d8d;
+    cursor: pointer;
+    font-size: 14px;
+
+    &.addLabel:after {
+      content: 'Выбрать файл на компьютере';
+      font-size: 12px;
+      color: $main-blue;
+      text-decoration: underline;
+    }
+
+    &:hover:after {
+      text-decoration: none;
+    }
+  }
+
+  &__text {
+    color: #999;
+    font-size: 13px;
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    top: 7px;
+    transition: 0.2s;
+    transition-timing-function: ease;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+}
+
+.input {
+  border: none;
+  border-bottom: 1px solid $main-blue;
+  color: $dark-silver;
+  padding: 7px 0;
+  font-size: 13px;
+  width: 100%;
+
+  &_file {
+    width: 0;
+    height: 0;
+    z-index: 10;
+  }
+
+  &_profile-edit {
+    border: none;
+    background-color: transparent;
+    color: #999;
+    text-align: right;
+  }
+
+  &:focus + .label__text,
+  &:not(:placeholder-shown) + .label__text {
+    font-size: 9px;
+    transform: translateY(-16px) translateX(0px);
+  }
+
+  /* For IE Browsers*/
+  &:focus + .label__text,
+  &:not(:-ms-.input-placeholder) + .label__text {
+    font-size: 9px;
+    transform: translateY(-16px) translateX(0px);
+  }
+
+  &:focus + .label__text .onfocus-hide,
+  &:not(:placeholder-shown) + .label__text .onfocus-hide {
+    display: none;
+  }
+
+  &__error {
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    font-size: 8px;
+    color: #ff2f2f;
+  }
+}

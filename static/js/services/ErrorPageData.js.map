@@ -1,1 +1,0 @@
-{"version":3,"file":"ErrorPageData.js","sourceRoot":"","sources":["../../../src/services/ErrorPageData.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,OAAO,UAAU,aAAa;IACnC,OAAO;QACL,OAAO,EAAE;YACP,WAAW,EAAE,KAAK;YAClB,YAAY,EAAE,eAAe;SAC9B;QACD,OAAO,EAAE;YACP,WAAW,EAAE,KAAK;YAClB,YAAY,EAAE,gBAAgB;SAC/B;KACF,CAAA;AACH,CAAC"}
