@@ -1,6 +1,6 @@
 import { Block, ComponentProps } from './Block.js'
 
-const templateString = `
+export const templateString = `
 <button
   {{#if dataToggleId}}
     data-toggle-id="{{dataToggleId}}"
@@ -27,7 +27,7 @@ const sidebarTemplate = Handlebars.compile(`
 </button>
 `)
 
-class Button extends Block {
+export class Button extends Block {
   constructor(public props: ComponentProps) {
     super('div', props)
   }
@@ -41,5 +41,3 @@ class Button extends Block {
     }
   }
 }
-
-export { Button, templateString }

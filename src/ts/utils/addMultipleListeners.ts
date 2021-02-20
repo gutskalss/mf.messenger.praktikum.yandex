@@ -1,4 +1,4 @@
-function addMultipleListeners(
+export function addMultipleListeners(
   element: HTMLElement,
   events: string[],
   handler: (event: Event) => void
@@ -7,5 +7,3 @@ function addMultipleListeners(
     element.addEventListener(event, handler)
   })
 }
-
-export { addMultipleListeners }

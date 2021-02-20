@@ -1,9 +1,10 @@
 import { EventBus } from '../utils/eventBus.js'
 
-interface ComponentProps {
+export interface ComponentProps {
   template?: string
   backLink?: string
   classList?: string
+  profileAvatarURL?: string
   type?: string
   value?: string
   text?: string
@@ -40,7 +41,7 @@ interface ComponentProps {
   }[]
 }
 
-class Block {
+export class Block {
   static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
@@ -130,13 +131,11 @@ class Block {
   }
 
   _makePropsProxy(props: object) {
-    const self = this
-
     props = new Proxy(props, {
-      set(target, prop, value) {
+      set: (target, prop, value) => {
         const oldProps = { ...target }
         target[prop] = value
-        self.eventBus.emit(Block.EVENTS.FLOW_CDU, oldProps, target)
+        this.eventBus.emit(Block.EVENTS.FLOW_CDU, oldProps, target)
         return true
       },
       deleteProperty() {
@@ -154,12 +153,10 @@ class Block {
   addEvents() {}
 
   show() {
-    this._element.style.display = 'block'
+    this._element.classList.add('hide')
   }
 
   hide() {
-    this._element.style.display = 'none'
+    this._element.classList.remove('hide')
   }
 }
-
-export { Block, ComponentProps }

@@ -1,7 +1,6 @@
 import { toggle } from './toggle.js'
 
-// Закрыть модальное окно по клику вне окна
-function closeModalOnOutClick() {
+export function closeModalOnOutClick() {
   document.addEventListener(
     'click',
     function (event: MouseEvent) {
@@ -12,5 +11,3 @@ function closeModalOnOutClick() {
     false
   )
 }
-
-export { closeModalOnOutClick }

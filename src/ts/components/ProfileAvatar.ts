@@ -1,19 +1,23 @@
 import { Block, ComponentProps } from './Block.js'
 
+const imageBaseURL = 'https://ya-praktikum.tech/'
+
 const template = Handlebars.compile(`
 <div data-toggle-id="changeAvatarModal" class="profile__avatar">
-  <i class="fas fa-camera"></i>
+  {{#if profileAvatarURL}}
+  <img src="${imageBaseURL}{{profileAvatarURL}}" alt="#">
+  {{else}}
+    <i class="fas fa-camera"></i>
+  {{/if}}
 </div>
 `)
 
-class ProfileAvatar extends Block {
+export class ProfileAvatar extends Block {
   constructor(public props: ComponentProps) {
     super('div', props)
   }
 
   render() {
-    return template()
+    return template(this.props)
   }
 }
-
-export { ProfileAvatar }

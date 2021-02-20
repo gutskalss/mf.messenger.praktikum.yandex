@@ -9,43 +9,47 @@ import { toggleElements } from '../utils/toggleElements.js'
 import { addCustomFileInput } from '../utils/addCustomFileInput.js'
 import { addInputsValidation, formSubmitHandler } from '../utils/formHandler.js'
 
-const profileData = ProfileData()
+import { getUserInfo } from '../api/index.js'
 
-const sidebarButtonTemplate = new Button({
-  template: 'sidebar',
-  backLink: '/profile',
-})
-const profileAvatar = new ProfileAvatar({})
-const changePasswordInputs = new Input({
-  template: 'profile',
-  inputs: profileData.changePasswordData,
-})
-const submitButtonTemplate = new Button(profileData.saveButton)
-const changeAvatarModal = new ChangeAvatarModal({})
+export class ChangePasswordPage extends Block {
+  async render() {
+    const { changePasswordData, saveButton } = ProfileData()
+    const profileServerData = await getUserInfo()
+    const profileAvatarURL = profileServerData.avatar
 
-const template = `
-    <div class="profile">
-    ${sidebarButtonTemplate.render()}
-    <div class="profile__container hide-scrollbar">
-      <div class="profile__data">
-        ${profileAvatar.render()}
+    const sidebarButtonTemplate = new Button({
+      template: 'sidebar',
+      backLink: '/profile',
+    })
+    const profileAvatar = new ProfileAvatar({ profileAvatarURL })
+    const changePasswordInputs = new Input({
+      template: 'profile',
+      inputs: changePasswordData,
+    })
+    const submitButtonTemplate = new Button(saveButton)
+    const changeAvatarModal = new ChangeAvatarModal({})
 
-        <div class="profile__name">Сергей</div>
+    const template = `
+        <div class="profile">
+        ${sidebarButtonTemplate.render()}
+        <div class="profile__container hide-scrollbar">
+          <div class="profile__data">
+            ${profileAvatar.render()}
 
-        <form class="form_profile-edit" action="#">
-          ${changePasswordInputs.render()}
-          ${submitButtonTemplate.render()}
-        </form>
+            <div class="profile__name">Сергей</div>
+
+            <form data-request-name="changeUserPassword" data-redirect-to="/profile" class="form_profile-edit">
+              ${changePasswordInputs.render()}
+              ${submitButtonTemplate.render()}
+            </form>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  ${changeAvatarModal.render()}
-`
+      ${changeAvatarModal.render()}
+    `
 
-const pageTemplate = Handlebars.compile(template)
+    const pageTemplate = Handlebars.compile(template)
 
-class ChangePasswordPage extends Block {
-  render() {
     return pageTemplate()
   }
 
@@ -57,5 +61,3 @@ class ChangePasswordPage extends Block {
     formSubmitHandler()
   }
 }
-
-export { ChangePasswordPage }

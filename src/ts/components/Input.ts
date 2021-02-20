@@ -85,7 +85,7 @@ const cleanTemplate = Handlebars.compile(`
 />
 `)
 
-class Input extends Block {
+export class Input extends Block {
   constructor(public props: ComponentProps) {
     super('div', props)
   }
@@ -105,5 +105,3 @@ class Input extends Block {
     }
   }
 }
-
-export { Input }

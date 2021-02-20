@@ -52,7 +52,7 @@ const template = `
 
 const pageTemplate = Handlebars.compile(template)
 
-class ChatsPage extends Block {
+export class ChatsPage extends Block {
   render() {
     return pageTemplate()
   }
@@ -64,5 +64,3 @@ class ChatsPage extends Block {
     formSubmitHandler()
   }
 }
-
-export { ChatsPage }

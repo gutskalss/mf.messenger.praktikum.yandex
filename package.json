@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "scss:watch": "node-sass -w src/scss -o static/css",
+    "copy-static": "node copy-static.js",
+    "scss:watch": "node-sass -w src/scss -o build/css",
+    "scss:build": "node-sass src/scss/styles.scss -o build/css",
     "tsc:watch": "tsc -w",
     "start:server": "nodemon index.js",
-    "start": "concurrently \"npm run scss:watch\" \"npm run start:server\" \"npm run tsc:watch\" "
+    "start": "concurrently \"npm run copy-static\" \"npm run scss:build\" \"npm run scss:watch\" \"npm run start:server\" \"npm run tsc:watch\""
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,7 @@
   "homepage": "https://github.com/gutskalss/mf.messenger.praktikum.yandex#readme",
   "devDependencies": {
     "concurrently": "^5.3.0",
+    "copyfiles": "^2.4.1",
     "express": "4.17.1",
     "node-sass": "^5.0.0",
     "nodemon": "^2.0.6",

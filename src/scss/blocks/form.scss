@@ -9,7 +9,7 @@
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.14);
   border-radius: 12px;
   padding: 30px;
-  background-color: #fff;
+  background-color: $white;
 
   &_profile-edit {
     width: 100%;
@@ -24,7 +24,7 @@
 
   &_file-input {
     position: relative;
-    color: #8d8d8d;
+    color: $file-input-color;
     cursor: pointer;
     font-size: 14px;
 
@@ -41,7 +41,7 @@
   }
 
   &__text {
-    color: #999;
+    color: $silver;
     font-size: 13px;
     pointer-events: none;
     position: absolute;
@@ -70,7 +70,7 @@
   &_profile-edit {
     border: none;
     background-color: transparent;
-    color: #999;
+    color: $silver;
     text-align: right;
   }
 
@@ -97,6 +97,6 @@
     bottom: -15px;
     left: 0;
     font-size: 8px;
-    color: #ff2f2f;
+    color: $red;
   }
 }

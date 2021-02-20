@@ -25,7 +25,7 @@ const template = `
 
 const pageTemplate = Handlebars.compile(template)
 
-class SigninPage extends Block {
+export class SigninPage extends Block {
   render() {
     return pageTemplate()
   }
@@ -35,5 +35,3 @@ class SigninPage extends Block {
     formSubmitHandler()
   }
 }
-
-export { SigninPage }

@@ -10,7 +10,7 @@ const regexList = {
   email: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
 }
 
-function formSubmitHandler() {
+export function formSubmitHandler() {
   document.querySelectorAll('form').forEach(item => {
     item.addEventListener('submit', function (event) {
       event.preventDefault()
@@ -27,7 +27,7 @@ function formSubmitHandler() {
   })
 }
 
-function addInputsValidation() {
+export function addInputsValidation() {
   document.querySelectorAll('[data-validate').forEach(item => {
     addMultipleListeners(
       item as HTMLElement,
@@ -97,5 +97,3 @@ function serialize(form: EventTarget | null) {
     {}
   )
 }
-
-export { formSubmitHandler, addInputsValidation }

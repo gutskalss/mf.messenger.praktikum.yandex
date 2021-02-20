@@ -1,1 +1,0 @@
-{"version":3,"file":"sendRequest.js","sourceRoot":"","sources":["../../../src/ts/api/sendRequest.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,aAAa,EAAE,MAAM,kCAAkC,CAAA;AAEhE,SAAS,WAAW,CAAC,WAAmB,EAAE,IAAY;IACpD,MAAM,OAAO,GAAG,IAAI,aAAa,EAAE,CAAA;AACrC,CAAC;AAED,OAAO,EAAE,WAAW,EAAE,CAAA"}

@@ -10,7 +10,7 @@ const template = Handlebars.compile(`
 </div>
 `)
 
-class ErrorMessage extends Block {
+export class ErrorMessage extends Block {
   constructor(public props: ComponentProps) {
     super('div', props)
   }
@@ -19,5 +19,3 @@ class ErrorMessage extends Block {
     return template(this.props)
   }
 }
-
-export { ErrorMessage }

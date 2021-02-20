@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "static/js",
+    "outDir": "build/js",
     "rootDir": "src/ts",
     "removeComments": true,
     "target": "es6",

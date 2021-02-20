@@ -1,4 +1,4 @@
-function DialogPageData() {
+export function DialogPageData() {
   return {
     searchInput: {
       template: 'search',
@@ -288,5 +288,3 @@ function DialogPageData() {
     },
   }
 }
-
-export { DialogPageData }

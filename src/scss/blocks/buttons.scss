@@ -23,11 +23,11 @@
 
   &_blue {
     background-color: $main-blue;
-    color: #fff;
+    color: $white;
   }
 
   &_chat-delete {
-    color: #ff2f2f;
+    color: $red;
     position: absolute;
     top: 50%;
     right: 20px;
@@ -60,6 +60,6 @@
     width: 32px;
     height: 32px;
     font-size: 22px;
-    color: #999;
+    color: $silver;
   }
 }

@@ -8,7 +8,7 @@
   &__top-bar {
     position: relative;
     flex: 0 0 55px;
-    border-bottom: 1px solid #eaeaea;
+    border-bottom: 1px solid $oneside-border;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -23,7 +23,7 @@
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    background-color: #efefef;
+    background-color: $light-white;
     overflow: hidden;
     margin-right: 10px;
   }
@@ -65,11 +65,11 @@
   }
 
   &__message {
-    background-color: #f8f8f8;
-    padding: 11px 11px 24px 11px;
+    background-color: $message-bg;
+    padding: 11px 11px 24px;
     color: $dark-silver;
     font-size: 12px;
-    border-radius: 0 10px 10px 10px;
+    border-radius: 0 10px 10px;
     max-width: 75%;
     margin: 5px 0;
     position: relative;
@@ -83,14 +83,14 @@
     }
 
     &_own {
-      background-color: #e4edfd;
+      background-color: $light-blue;
       border-radius: 10px 10px 0 10px;
     }
 
     &_image {
-      border: 1px solid #e5e5e5;
+      border: 1px solid $border-silver;
       border-radius: 10px;
-      background: #fff;
+      background: $white;
       max-width: 315px;
       max-height: 315px;
       display: flex;
@@ -101,14 +101,14 @@
 
     &-info {
       font-size: 9px;
-      color: #999;
+      color: $silver;
       position: absolute;
       bottom: 11px;
       right: 11px;
 
       &_image {
-        color: #fff;
-        background-color: #ababab;
+        color: $white;
+        background-color: $silver;
         border-radius: 30px;
         padding: 2px 7px;
       }
@@ -117,7 +117,7 @@
 
   &__bottom-bar {
     flex: 0 0 55px;
-    border-top: 1px solid #eaeaea;
+    border-top: 1px solid $oneside-border;
   }
 
   &__create-message-form {
@@ -135,7 +135,7 @@
 
 .input {
   &_new-message {
-    background-color: #efefef;
+    background-color: $light-white;
     border-radius: 30px;
     border: none;
     padding: 10px 20px;
@@ -144,7 +144,7 @@
 }
 .toggle-menu {
   list-style: none;
-  background-color: #fff;
+  background-color: $white;
   border-radius: 12px;
   position: absolute;
   padding: 15px;

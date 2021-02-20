@@ -1,4 +1,4 @@
-function LoginFormData() {
+export function LoginFormData() {
   return {
     button: {
       classList: 'btn btn_blue btn_submit',
@@ -30,5 +30,3 @@ function LoginFormData() {
     ],
   }
 }
-
-export { LoginFormData }

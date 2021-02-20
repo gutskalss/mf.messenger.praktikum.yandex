@@ -2,12 +2,12 @@ import { HTTPTransport } from '../HTTPTransport/HTTPTransport.js'
 
 const baseURL = 'https://ya-praktikum.tech/api/v2/'
 
-export function signin(data, redirectURL) {
+export function changeUserProfile(data, redirectURL) {
   const request = new HTTPTransport()
-  const url = `${baseURL}auth/signin`
+  const url = `${baseURL}user/profile`
 
   request
-    .post(url, { data: JSON.stringify(data) })
+    .put(url, { data: JSON.stringify(data) })
     .then(result => {
       if (result.status === 200) {
         window.location.href = redirectURL
@@ -19,12 +19,12 @@ export function signin(data, redirectURL) {
     .catch(err => console.error(err))
 }
 
-export function signup(data, redirectURL) {
+export function changeUserPassword(data, redirectURL) {
   const request = new HTTPTransport()
-  const url = `${baseURL}auth/signup`
+  const url = `${baseURL}user/password`
 
   request
-    .post(url, { data: JSON.stringify(data) })
+    .put(url, { data: JSON.stringify(data) })
     .then(result => {
       if (result.status === 200) {
         window.location.href = redirectURL
@@ -36,12 +36,19 @@ export function signup(data, redirectURL) {
     .catch(err => console.error(err))
 }
 
-export function logout(redirectURL) {
+export function changeUserAvatar(data, redirectURL) {
   const request = new HTTPTransport()
-  const url = `${baseURL}auth/logout`
+  const url = `${baseURL}user/profile/avatar`
+
+  const image = (<HTMLInputElement>document.getElementById('avatar')).files[0]
+  const formData = new FormData()
+  formData.append('avatar', image)
 
   request
-    .post(url)
+    .put(url, {
+      data: formData,
+      headers: null,
+    })
     .then(result => {
       if (result.status === 200) {
         window.location.href = redirectURL
@@ -50,18 +57,15 @@ export function logout(redirectURL) {
         alert(reason)
       }
     })
-    .catch(err => console.error(err))
-}
+    .catch(function (err) {
+      throw err
+    })
 
-export function getUserInfo() {
-  const request = new HTTPTransport()
-  const url = `${baseURL}/auth/user`
-
-  return request
-    .get(url)
+  request
+    .put(url, { data: JSON.stringify(data) })
     .then(result => {
       if (result.status === 200) {
-        return JSON.parse(result.response)
+        window.location.href = redirectURL
       } else {
         const reason = JSON.parse(result.response).reason
         alert(reason)

@@ -62,7 +62,7 @@ const template = Handlebars.compile(`
 </div>
 `)
 
-class Dialog extends Block {
+export class Dialog extends Block {
   constructor(public props: ComponentProps) {
     super('div', props)
   }
@@ -71,5 +71,3 @@ class Dialog extends Block {
     return template(this.props)
   }
 }
-
-export { Dialog }

@@ -10,10 +10,8 @@ const template = errorMessageTemplate.render()
 
 const pageTemplate = Handlebars.compile(template)
 
-class Error500Page extends Block {
+export class Error500Page extends Block {
   render() {
     return pageTemplate()
   }
 }
-
-export { Error500Page }

@@ -3,7 +3,7 @@ const path = require('path')
 const app = express()
 const port = 3000
 
-app.use(express.static('static'))
+app.use(express.static('build'))
 
 app.get('*', function (req, res, next) {
   let _path = req.path
@@ -11,7 +11,7 @@ app.get('*', function (req, res, next) {
   const lastComp = _path.split('/')
   const name = lastComp[lastComp.length - 1].includes('.')
   if (!name) {
-    res.sendFile(path.resolve(__dirname, 'static/index.html'))
+    res.sendFile(path.resolve(__dirname, 'build/index.html'))
   } else {
     next()
   }

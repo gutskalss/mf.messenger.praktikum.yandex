@@ -14,7 +14,7 @@ function queryStringify(data: object): string {
   )
 }
 
-class HTTPTransport {
+export class HTTPTransport {
   get = (url, options = {}) => {
     if (typeof options.data === 'object') {
       url = url + queryStringify(options.data)
@@ -53,13 +53,22 @@ class HTTPTransport {
   request = (url, options, timeout = 5000) => {
     const { method, headers, data } = options
 
+    const defaultHeaders = {
+      'Content-Type': 'application/json',
+    }
+
+    const mergedHeaders = {
+      ...defaultHeaders,
+      ...headers,
+    }
+
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest()
       xhr.open(method, url)
 
-      if (typeof headers === 'object') {
-        Object.keys(headers).forEach(key => {
-          xhr.setRequestHeader(key, headers[key])
+      if (headers !== null) {
+        Object.keys(mergedHeaders).forEach(key => {
+          xhr.setRequestHeader(key, mergedHeaders[key])
         })
       }
 
@@ -82,5 +91,3 @@ class HTTPTransport {
     })
   }
 }
-
-export { HTTPTransport }

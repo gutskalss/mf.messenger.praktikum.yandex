@@ -10,7 +10,7 @@ const buttonTemplate = new Button(changeAvatar.button)
 
 const changeAvatarTemplate = Handlebars.compile(`
 <div id="changeAvatarModal" class="modal hide">
-  <form action="#" class="form form_modal">
+  <form data-request-name="changeUserAvatar" data-redirect-to="/profile" class="form form_modal">
     <h3 class="h3">Загрузите файл</h3>
     <h3 class="h3 h3_error hide">Ошибка, попробуйте ещё раз</h3>
 
@@ -22,7 +22,7 @@ const changeAvatarTemplate = Handlebars.compile(`
 </div>
 `)
 
-class ChangeAvatarModal extends Block {
+export class ChangeAvatarModal extends Block {
   constructor(public props: ComponentProps) {
     super('div', props)
   }
@@ -31,5 +31,3 @@ class ChangeAvatarModal extends Block {
     return changeAvatarTemplate()
   }
 }
-
-export { ChangeAvatarModal }

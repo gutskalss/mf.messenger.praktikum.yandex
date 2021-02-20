@@ -1,3 +1,1 @@
-import { Router } from './Router.js'
-
-export { Router }
+export { Router } from './Router.js'

@@ -27,8 +27,8 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-color: #efefef;
-    color: #cdcdcd;
+    background-color: $light-white;
+    color: $profile-avatar-color;
     font-size: 40px;
     margin: 20px;
     cursor: pointer;
@@ -46,7 +46,7 @@
       font-size: 13px;
       display: flex;
       align-items: center;
-      color: #fff;
+      color: $white;
       padding: 20px;
       box-sizing: border-box;
       text-align: center;
@@ -73,7 +73,7 @@
       display: flex;
       justify-content: space-between;
       font-size: 13px;
-      border-bottom: 1px solid #eaeaea;
+      border-bottom: 1px solid $oneside-border;
       padding: 10px 0;
 
       &:last-child {
@@ -83,15 +83,15 @@
   }
 
   &__data-value {
-    color: #999;
+    color: $silver;
   }
 }
 
 .btn {
   &_left-bar {
     flex: 0 0 65px;
-    border-right: 1px solid #eaeaea;
-    background-color: #fbfbfb;
+    border-right: 1px solid $oneside-border;
+    background-color: $superlight-white;
     display: flex;
     align-items: center;
     justify-content: center;

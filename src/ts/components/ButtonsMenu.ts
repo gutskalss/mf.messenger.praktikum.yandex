@@ -14,7 +14,7 @@ const template = Handlebars.compile(`
 </ul>
 `)
 
-class ButtonsMenu extends Block {
+export class ButtonsMenu extends Block {
   constructor(public props: ComponentProps) {
     super('div', props)
   }
@@ -23,5 +23,3 @@ class ButtonsMenu extends Block {
     return template(this.props)
   }
 }
-
-export { ButtonsMenu }

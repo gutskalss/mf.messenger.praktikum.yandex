@@ -25,17 +25,17 @@ class Route {
     return pathname === this._pathname
   }
 
-  render() {
+  async render() {
     if (!this._block) {
       this._block = new this._blockClass('div', {})
     }
 
-    render(this._props.rootQuery, this._block.render())
+    render(this._props.rootQuery, await this._block.render())
     this._block.addEvents()
   }
 }
 
-class Router {
+export class Router {
   constructor(rootQuery) {
     if (Router.__instance) {
       return Router.__instance
@@ -96,5 +96,3 @@ class Router {
     return this.routes.find(route => route.match(pathname))
   }
 }
-
-export { Router }

@@ -115,7 +115,7 @@ const template = `
 
 const pageTemplate = Handlebars.compile(template)
 
-class DialogPage extends Block {
+export class DialogPage extends Block {
   render() {
     return pageTemplate()
   }
@@ -127,5 +127,3 @@ class DialogPage extends Block {
     formSubmitHandler()
   }
 }
-
-export { DialogPage }

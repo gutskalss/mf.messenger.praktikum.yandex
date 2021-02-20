@@ -1,6 +1,6 @@
 import { toggle } from './toggle.js'
 
-function toggleElements() {
+export function toggleElements() {
   document.querySelectorAll('[data-toggle-id]').forEach((item: HTMLElement) => {
     item.addEventListener('click', function (event) {
       event.preventDefault()
@@ -9,5 +9,3 @@ function toggleElements() {
     })
   })
 }
-
-export { toggleElements }

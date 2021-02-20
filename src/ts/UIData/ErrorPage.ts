@@ -1,4 +1,4 @@
-function ErrorPageData() {
+export function ErrorPageData() {
   return {
     page500: {
       errorNumber: '500',
@@ -10,5 +10,3 @@ function ErrorPageData() {
     },
   }
 }
-
-export { ErrorPageData }

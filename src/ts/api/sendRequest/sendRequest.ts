@@ -1,6 +1,13 @@
-import { signin, signup, logout } from '../index.js'
+import {
+  signin,
+  signup,
+  logout,
+  changeUserProfile,
+  changeUserPassword,
+  changeUserAvatar,
+} from '../index.js'
 
-function sendRequest(
+export function sendRequest(
   requestName: string,
   data: object,
   redirectURL: string
@@ -15,8 +22,15 @@ function sendRequest(
     case 'logout':
       logout(redirectURL)
       break
+    case 'changeUserProfile':
+      changeUserProfile(data, redirectURL)
+      break
+    case 'changeUserPassword':
+      changeUserPassword(data, redirectURL)
+      break
+    case 'changeUserAvatar':
+      changeUserAvatar(data, redirectURL)
+      break
     default:
   }
 }
-
-export { sendRequest }

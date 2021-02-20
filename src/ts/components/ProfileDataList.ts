@@ -2,7 +2,7 @@ import { Block, ComponentProps } from './Block.js'
 
 const template = Handlebars.compile(`
 <ul class="profile__list">
-  {{#each profileData}}
+  {{#each profileDataList}}
     <li class="profile__list-item">
       <div class="profile__data-item">{{this.label}}</div>
       <div class="profile__data-value">{{this.value}}</div>
@@ -11,7 +11,7 @@ const template = Handlebars.compile(`
 </ul>
 `)
 
-class ProfileDataList extends Block {
+export class ProfileDataList extends Block {
   constructor(public props = {}) {
     super('div', props)
   }
@@ -20,5 +20,3 @@ class ProfileDataList extends Block {
     return template(this.props)
   }
 }
-
-export { ProfileDataList }

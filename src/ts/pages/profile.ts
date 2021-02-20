@@ -11,22 +11,24 @@ import { addInputsValidation, formSubmitHandler } from '../utils/formHandler.js'
 
 import { getUserInfo } from '../api/index.js'
 
-class ProfilePage extends Block {
-  render() {
-    const { data: profileData } = ProfileData()
+export class ProfilePage extends Block {
+  async render() {
+    const { data: profileDataList } = ProfileData()
+    const profileServerData = await getUserInfo()
+    const profileAvatarURL = profileServerData.avatar
+
+    profileDataList.forEach(item => {
+      item.value = profileServerData[item.name]
+    })
+
+    const profileDataListTemplate = new ProfileDataList({ profileDataList })
 
     const sidebarButtonTemplate = new Button({
       template: 'sidebar',
       backLink: '/chats',
     })
-    const profileAvatar = new ProfileAvatar({})
-    const profileDataListTemplate = new ProfileDataList()
-    // profileDataListTemplate.setProps({ profileData })
 
-    getUserInfo().then(data => {
-      profileDataListTemplate.setProps({ profileData })
-      console.log(profileData)
-    })
+    const profileAvatar = new ProfileAvatar({ profileAvatarURL })
 
     const changeAvatarModal = new ChangeAvatarModal({})
 
@@ -76,5 +78,3 @@ class ProfilePage extends Block {
     formSubmitHandler()
   }
 }
-
-export { ProfilePage }

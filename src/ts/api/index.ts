@@ -1,5 +1,8 @@
-import { HTTPTransport } from './HTTPTransport/HTTPTransport.js'
-import { sendRequest } from './sendRequest/sendRequest.js'
-import { signin, signup, logout, getUserInfo } from './Auth/Auth.js'
-
-export { HTTPTransport, sendRequest, signin, signup, logout, getUserInfo }
+export { HTTPTransport } from './HTTPTransport/HTTPTransport.js'
+export { sendRequest } from './sendRequest/sendRequest.js'
+export { signin, signup, logout, getUserInfo } from './Auth/Auth.js'
+export {
+  changeUserProfile,
+  changeUserPassword,
+  changeUserAvatar,
+} from './User/User.js'
