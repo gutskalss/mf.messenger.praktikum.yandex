@@ -1,4 +1,4 @@
-import { HTTPTransport } from '../HTTPTransport/HTTPTransport.js'
+import { HTTPTransport } from '../HTTPTransport/HTTPTransport'
 
 const baseURL = 'https://ya-praktikum.tech/api/v2/'
 

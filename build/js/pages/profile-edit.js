@@ -7,17 +7,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { ProfileData } from '../UIData/Profile.js';
-import { Block } from '../components/Block.js';
-import { Button } from '../components/Button.js';
-import { Input } from '../components/Input.js';
-import { ProfileAvatar } from '../components/ProfileAvatar.js';
-import { ChangeAvatarModal } from '../components/ChangeAvatarModal.js';
-import { closeModalOnOutClick } from '../utils/closeModalOnOutClick.js';
-import { toggleElements } from '../utils/toggleElements.js';
-import { addCustomFileInput } from '../utils/addCustomFileInput.js';
-import { addInputsValidation, formSubmitHandler } from '../utils/formHandler.js';
-import { getUserInfo } from '../api/index.js';
+import { ProfileData } from "../UIData/Profile.js";
+import { Block } from "../components/Block.js";
+import { Button } from "../components/Button.js";
+import { Input } from "../components/Input.js";
+import { ProfileAvatar } from "../components/ProfileAvatar.js";
+import { ChangeAvatarModal } from "../components/ChangeAvatarModal.js";
+import { closeModalOnOutClick } from "../utils/closeModalOnOutClick.js";
+import { toggleElements } from "../utils/toggleElements.js";
+import { addCustomFileInput } from "../utils/addCustomFileInput.js";
+import { addInputsValidation, formSubmitHandler } from "../utils/formHandler.js";
+import { getUserInfo } from "../api/index.js";
 export class ProfileEditPage extends Block {
     render() {
         return __awaiter(this, void 0, void 0, function* () {

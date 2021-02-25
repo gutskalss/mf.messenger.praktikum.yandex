@@ -1,4 +1,4 @@
-import { Block, ComponentProps } from './Block.js'
+import { Block, ComponentProps } from './Block'
 
 const imageBaseURL = 'https://ya-praktikum.tech/'
 

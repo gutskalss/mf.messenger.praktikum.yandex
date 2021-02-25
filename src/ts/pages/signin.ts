@@ -1,8 +1,8 @@
-import { LoginFormData } from '../UIData/LoginForm.js'
-import { Block } from '../components/Block.js'
-import { Input } from '../components/Input.js'
-import { Button } from '../components/Button.js'
-import { addInputsValidation, formSubmitHandler } from '../utils/formHandler.js'
+import { LoginFormData } from '../UIData/LoginForm'
+import { Block } from '../components/Block'
+import { Input } from '../components/Input'
+import { Button } from '../components/Button'
+import { addInputsValidation, formSubmitHandler } from '../utils/formHandler'
 
 const loginFormData = LoginFormData()
 

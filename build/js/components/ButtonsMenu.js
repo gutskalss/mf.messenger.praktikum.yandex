@@ -1,5 +1,5 @@
-import { Block } from './Block.js';
-import { templateString as buttonTemplateString } from './Button.js';
+import { Block } from "./Block.js";
+import { templateString as buttonTemplateString } from "./Button.js";
 const template = Handlebars.compile(`
 <ul
   id="{{id}}"

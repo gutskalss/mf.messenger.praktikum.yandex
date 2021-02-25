@@ -1,4 +1,4 @@
-import { EventBus } from '../utils/eventBus.js'
+import { EventBus } from '../utils/eventBus'
 
 export interface ComponentProps {
   template?: string

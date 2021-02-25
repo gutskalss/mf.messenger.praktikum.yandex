@@ -1,0 +1,1 @@
+import Handlebars = require('handlebars')

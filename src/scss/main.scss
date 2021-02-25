@@ -75,6 +75,7 @@ img {
 }
 .hide-scrollbar {
   overflow-y: auto;
+  overflow-x: hidden;
   scrollbar-width: 0; /* Hide scroll bar in Firefox */
 
   &::-webkit-scrollbar {

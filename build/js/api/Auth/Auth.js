@@ -1,8 +1,8 @@
-import { HTTPTransport } from '../HTTPTransport/HTTPTransport.js';
+import { HTTPTransport } from "../HTTPTransport/HTTPTransport.js";
 const baseURL = 'https://ya-praktikum.tech/api/v2/';
 export function signin(data, redirectURL) {
     const request = new HTTPTransport();
-    const url = `${baseURL}auth/signin`;
+    const url = `${baseURL}/auth/signin`;
     request
         .post(url, { data: JSON.stringify(data) })
         .then(result => {
@@ -18,7 +18,7 @@ export function signin(data, redirectURL) {
 }
 export function signup(data, redirectURL) {
     const request = new HTTPTransport();
-    const url = `${baseURL}auth/signup`;
+    const url = `${baseURL}/auth/signup`;
     request
         .post(url, { data: JSON.stringify(data) })
         .then(result => {
@@ -34,7 +34,7 @@ export function signup(data, redirectURL) {
 }
 export function logout(redirectURL) {
     const request = new HTTPTransport();
-    const url = `${baseURL}auth/logout`;
+    const url = `${baseURL}/auth/logout`;
     request
         .post(url)
         .then(result => {

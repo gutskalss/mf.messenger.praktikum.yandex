@@ -1,14 +1,16 @@
-import { render } from '../render.js'
+import { render } from '../render'
 
 class Route {
-  constructor(pathname, view, props) {
+  _pathname: string
+
+  constructor(pathname: string, view, props) {
     this._pathname = pathname
     this._blockClass = view
     this._block = null
     this._props = props
   }
 
-  navigate(pathname) {
+  navigate(pathname: string) {
     if (this.match(pathname)) {
       this._pathname = pathname
       this.render()
@@ -21,7 +23,7 @@ class Route {
     }
   }
 
-  match(pathname) {
+  match(pathname: string) {
     return pathname === this._pathname
   }
 
@@ -36,7 +38,12 @@ class Route {
 }
 
 export class Router {
-  constructor(rootQuery) {
+  private static __instance: Router
+  routes: Route[] = []
+  private history: History = window.history
+  private _currentRoute: Route | null | undefined
+  private _rootQuery: string = ''
+  constructor(rootQuery: string) {
     if (Router.__instance) {
       return Router.__instance
     }
@@ -49,7 +56,7 @@ export class Router {
     Router.__instance = this
   }
 
-  use(pathname, block) {
+  use(pathname: string, block) {
     const route = new Route(pathname, block, { rootQuery: this._rootQuery })
     this.routes.push(route)
 
@@ -64,7 +71,7 @@ export class Router {
     this._onRoute(window.location.pathname)
   }
 
-  _onRoute(pathname) {
+  _onRoute(pathname: string) {
     const route = this.getRoute(pathname)
 
     if (!route) {
@@ -79,7 +86,7 @@ export class Router {
     this._currentRoute.render()
   }
 
-  go(pathname) {
+  go(pathname: string) {
     this.history.pushState({}, '', pathname)
     this._onRoute(pathname)
   }
@@ -92,7 +99,7 @@ export class Router {
     this.history.forward()
   }
 
-  getRoute(pathname) {
+  getRoute(pathname: string) {
     return this.routes.find(route => route.match(pathname))
   }
 }

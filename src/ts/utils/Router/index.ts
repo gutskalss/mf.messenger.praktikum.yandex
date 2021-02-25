@@ -1,1 +1,1 @@
-export { Router } from './Router.js'
+export { Router } from './Router'

@@ -1,4 +1,4 @@
-import { toggle } from './toggle.js'
+import { toggle } from './toggle'
 
 export function closeModalOnOutClick() {
   document.addEventListener(

@@ -1,4 +1,4 @@
-import { Block } from './Block.js';
+import { Block } from "./Block.js";
 const template = Handlebars.compile(`
 <div class="error-page">
   <div class="error-page__title">

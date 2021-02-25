@@ -1,7 +1,7 @@
-import { Block } from './Block.js';
-import { Input } from './Input.js';
-import { Button } from './Button.js';
-import { ProfileData } from '../UIData/Profile.js';
+import { Block } from "./Block.js";
+import { Input } from "./Input.js";
+import { Button } from "./Button.js";
+import { ProfileData } from "../UIData/Profile.js";
 const { changeAvatar } = ProfileData();
 const inputTemplate = new Input(changeAvatar.input);
 const buttonTemplate = new Button(changeAvatar.button);

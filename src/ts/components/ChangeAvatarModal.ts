@@ -1,7 +1,7 @@
-import { Block, ComponentProps } from './Block.js'
-import { Input } from './Input.js'
-import { Button } from './Button.js'
-import { ProfileData } from '../UIData/Profile.js'
+import { Block, ComponentProps } from './Block'
+import { Input } from './Input'
+import { Button } from './Button'
+import { ProfileData } from '../UIData/Profile'
 
 const { changeAvatar } = ProfileData()
 

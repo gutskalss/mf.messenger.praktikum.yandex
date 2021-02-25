@@ -1,2 +1,2 @@
-export { Router } from './Router.js';
+export { Router } from "./Router.js";
 //# sourceMappingURL=index.js.map

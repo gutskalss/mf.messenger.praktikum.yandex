@@ -65,6 +65,7 @@ img {
 
 .hide-scrollbar {
   overflow-y: auto;
+  overflow-x: hidden;
   scrollbar-width: 0;
   /* Hide scroll bar in Firefox */ }
   .hide-scrollbar::-webkit-scrollbar {
@@ -177,14 +178,12 @@ img {
   .btn_blue {
     background-color: #3369f3;
     color: #fff; }
+  .btn_user-add {
+    color: #6abea7; }
+  .btn_user-delete {
+    color: #ff2f2f; }
   .btn_chat-delete {
-    color: #ff2f2f;
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translate(0, -50%);
-    display: none;
-    font-size: 16px; }
+    color: #ff2f2f; }
   .btn_round {
     border-radius: 50%;
     width: 25px;
@@ -204,6 +203,13 @@ img {
     height: 32px;
     font-size: 22px;
     color: #999; }
+  .btn_add-chat {
+    background: #fff;
+    color: #3369f3;
+    border: 1px solid #3369f3;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 12px; }
 
 .chats {
   width: 100%;
@@ -226,9 +232,10 @@ img {
     display: flex;
     align-items: center;
     justify-content: center; }
-  .chats__profile-link-container {
+  .chats__links {
     display: flex;
-    justify-content: flex-end; }
+    justify-content: space-between;
+    align-items: center; }
   .chats__profile-link {
     text-decoration: none;
     display: flex;
@@ -287,11 +294,9 @@ img {
     cursor: pointer; }
     .chat-item__content_active {
       background-color: #e4edfd; }
-    .chat-item__content:hover .chat-item__time,
-    .chat-item__content:hover .chat-item__new-messages {
-      display: none; }
-    .chat-item__content:hover .btn_chat-delete {
-      display: block; }
+    .chat-item__content:hover .chat-item__hover-btns {
+      transform: translateX(0%);
+      transition: 0.3s all; }
   .chat-item__logo {
     flex: 0 0 47px;
     width: 47px;
@@ -337,6 +342,22 @@ img {
     display: block;
     border-bottom: 1px solid #e5e5e5;
     margin: 0 10px; }
+  .chat-item__hover-btns {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+    display: flex;
+    font-size: 16px;
+    padding: 0 20px;
+    background-color: #fbfbfb;
+    border-radius: 5px 0 0 5px;
+    transform: translateX(100%);
+    transition: 0.3s all; }
+    .chat-item__hover-btns button {
+      margin-right: 10px; }
+      .chat-item__hover-btns button:last-child {
+        margin-right: 0; }
 
 .dialog {
   display: flex;

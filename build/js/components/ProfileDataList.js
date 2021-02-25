@@ -1,4 +1,4 @@
-import { Block } from './Block.js';
+import { Block } from "./Block.js";
 const template = Handlebars.compile(`
 <ul class="profile__list">
   {{#each profileDataList}}

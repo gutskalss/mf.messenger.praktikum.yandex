@@ -7,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { render } from '../render.js';
+import { render } from "../render.js";
 class Route {
     constructor(pathname, view, props) {
         this._pathname = pathname;
@@ -41,6 +41,9 @@ class Route {
 }
 export class Router {
     constructor(rootQuery) {
+        this.routes = [];
+        this.history = window.history;
+        this._rootQuery = '';
         if (Router.__instance) {
             return Router.__instance;
         }

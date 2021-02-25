@@ -1,8 +1,15 @@
-export { HTTPTransport } from './HTTPTransport/HTTPTransport.js'
-export { sendRequest } from './sendRequest/sendRequest.js'
-export { signin, signup, logout, getUserInfo } from './Auth/Auth.js'
+export { HTTPTransport } from './HTTPTransport/HTTPTransport'
+export { sendRequest } from './sendRequest/sendRequest'
+export { signin, signup, logout, getUserInfo } from './Auth/Auth'
 export {
   changeUserProfile,
   changeUserPassword,
   changeUserAvatar,
-} from './User/User.js'
+} from './User/User'
+export {
+  createChat,
+  getChats,
+  deleteChat,
+  addUserToChat,
+  deleteUserFromChat,
+} from './Chats/Chats'

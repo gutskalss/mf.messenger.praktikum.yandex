@@ -1,4 +1,4 @@
-import { Block } from './Block.js';
+import { Block } from "./Block.js";
 const template = Handlebars.compile(`
 <ul class="chats-list hide-scrollbar">
   {{#each chats}}
@@ -8,7 +8,7 @@ const template = Handlebars.compile(`
           <img src="{{avatar.link}}" alt="{{avatar.alt}}" />
         </div>
         <div class="chat-item__text">
-          <span class="chat-item__title">{{name}}</span>
+          <span class="chat-item__title">{{title}}</span>
           <p class="chat-item__last-message">
             {{#if own}}
               <span class="chat-item__own-message">Вы:</span>
@@ -21,12 +21,35 @@ const template = Handlebars.compile(`
           <div class="chat-item__new-messages">{{unreaded}}</div>
         {{/if}}
         
-        <button
-          data-toggle-id="deleteChatModal"
-          class="btn btn_chat-delete"
-        >
-          <i class="far fa-trash-alt"></i>
-        </button>
+        <div class="chat-item__hover-btns">
+          <button
+            data-toggle-id="addUserModal"
+            data-dynamic-modal="true"
+            data-chat-id="{{id}}"
+            class="btn btn_user-add"
+          >
+            <i class="fas fa-user-plus"></i>
+          </button>
+
+          <button
+            data-toggle-id="deleteUserModal"
+            data-dynamic-modal="true"
+            data-chat-id="{{id}}"
+            class="btn btn_user-delete"
+          >
+            <i class="fas fa-user-times"></i>
+          </button>
+
+          <button
+            data-toggle-id="deleteChatModal"
+            data-dynamic-modal="true"
+            data-chat-id="{{id}}"
+            class="btn btn_chat-delete"
+          >
+            <i class="far fa-trash-alt"></i>
+          </button>
+        </div>
+        
       </div>
     </li>
   {{/each}}

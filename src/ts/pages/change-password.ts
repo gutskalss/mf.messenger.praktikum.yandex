@@ -1,15 +1,15 @@
-import { ProfileData } from '../UIData/Profile.js'
-import { Block } from '../components/Block.js'
-import { Button } from '../components/Button.js'
-import { Input } from '../components/Input.js'
-import { ProfileAvatar } from '../components/ProfileAvatar.js'
-import { ChangeAvatarModal } from '../components/ChangeAvatarModal.js'
-import { closeModalOnOutClick } from '../utils/closeModalOnOutClick.js'
-import { toggleElements } from '../utils/toggleElements.js'
-import { addCustomFileInput } from '../utils/addCustomFileInput.js'
-import { addInputsValidation, formSubmitHandler } from '../utils/formHandler.js'
+import { ProfileData } from '../UIData/Profile'
+import { Block } from '../components/Block'
+import { Button } from '../components/Button'
+import { Input } from '../components/Input'
+import { ProfileAvatar } from '../components/ProfileAvatar'
+import { ChangeAvatarModal } from '../components/ChangeAvatarModal'
+import { closeModalOnOutClick } from '../utils/closeModalOnOutClick'
+import { toggleElements } from '../utils/toggleElements'
+import { addCustomFileInput } from '../utils/addCustomFileInput'
+import { addInputsValidation, formSubmitHandler } from '../utils/formHandler'
 
-import { getUserInfo } from '../api/index.js'
+import { getUserInfo } from '../api/index'
 
 export class ChangePasswordPage extends Block {
   async render() {

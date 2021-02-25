@@ -5,7 +5,11 @@ import {
   changeUserProfile,
   changeUserPassword,
   changeUserAvatar,
-} from '../index.js'
+  createChat,
+  deleteChat,
+  addUserToChat,
+  deleteUserFromChat,
+} from '../index'
 
 export function sendRequest(
   requestName: string,
@@ -30,6 +34,18 @@ export function sendRequest(
       break
     case 'changeUserAvatar':
       changeUserAvatar(data, redirectURL)
+      break
+    case 'createChat':
+      createChat(data, redirectURL)
+      break
+    case 'deleteChat':
+      deleteChat(data, redirectURL)
+      break
+    case 'addUserToChat':
+      addUserToChat(data, redirectURL)
+      break
+    case 'deleteUserFromChat':
+      deleteUserFromChat(data, redirectURL)
       break
     default:
   }

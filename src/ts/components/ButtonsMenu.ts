@@ -1,5 +1,5 @@
-import { Block, ComponentProps } from './Block.js'
-import { templateString as buttonTemplateString } from './Button.js'
+import { Block, ComponentProps } from './Block'
+import { templateString as buttonTemplateString } from './Button'
 
 const template = Handlebars.compile(`
 <ul

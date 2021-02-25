@@ -26,14 +26,16 @@
     color: $white;
   }
 
+  &_user-add {
+    color: $green;
+  }
+
+  &_user-delete {
+    color: $red;
+  }
+
   &_chat-delete {
     color: $red;
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translate(0, -50%);
-    display: none;
-    font-size: 16px;
   }
 
   &_round {
@@ -61,5 +63,14 @@
     height: 32px;
     font-size: 22px;
     color: $silver;
+  }
+
+  &_add-chat {
+    background: $white;
+    color: $main-blue;
+    border: 1px solid $main-blue;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 12px;
   }
 }

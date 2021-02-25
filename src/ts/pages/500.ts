@@ -1,6 +1,6 @@
-import { ErrorPageData } from '../UIData/ErrorPage.js'
-import { Block } from '../components/Block.js'
-import { ErrorMessage } from '../components/ErrorMessage.js'
+import { ErrorPageData } from '../UIData/ErrorPage'
+import { Block } from '../components/Block'
+import { ErrorMessage } from '../components/ErrorMessage'
 
 const errorPageData = ErrorPageData()
 

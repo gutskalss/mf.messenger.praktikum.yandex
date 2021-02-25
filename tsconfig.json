@@ -1,11 +1,12 @@
 {
+  // "include": ["node_modules/handlebars/types"],
   "compilerOptions": {
     "outDir": "build/js",
     "rootDir": "src/ts",
     "removeComments": true,
     "target": "es6",
     "module": "es2015",
-    "lib": [ "es2018", "dom", "es2015.promise" ],
+    "lib": [ "es2017", "dom", "es2015.promise", "DOM.Iterable" ],
     "esModuleInterop": true,
     "noImplicitAny": true,
     "noUnusedLocals": true,
@@ -13,5 +14,10 @@
     "alwaysStrict": true,
     "sourceMap": true,
     "strictNullChecks": true,
-  }
+    "plugins": [
+			{
+				"transform": "@build-script/typescript-transformer-append-js-extension"
+			}
+		],
+  },
 }

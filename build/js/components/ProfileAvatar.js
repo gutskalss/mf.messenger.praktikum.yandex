@@ -1,4 +1,4 @@
-import { Block } from './Block.js';
+import { Block } from "./Block.js";
 const imageBaseURL = 'https://ya-praktikum.tech/';
 const template = Handlebars.compile(`
 <div data-toggle-id="changeAvatarModal" class="profile__avatar">

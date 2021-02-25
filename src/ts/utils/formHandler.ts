@@ -1,5 +1,5 @@
-import { addMultipleListeners } from './addMultipleListeners.js'
-import { sendRequest } from '../api/index.js'
+import { addMultipleListeners } from './addMultipleListeners'
+import { sendRequest } from '../api/index'
 
 const regexList = {
   login: /^.{3,12}$/,

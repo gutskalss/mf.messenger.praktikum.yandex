@@ -1,8 +1,8 @@
-import { SignupFormData } from '../UIData/SignupForm.js'
-import { Block } from '../components/Block.js'
-import { Input } from '../components/Input.js'
-import { Button } from '../components/Button.js'
-import { addInputsValidation, formSubmitHandler } from '../utils/formHandler.js'
+import { SignupFormData } from '../UIData/SignupForm'
+import { Block } from '../components/Block'
+import { Input } from '../components/Input'
+import { Button } from '../components/Button'
+import { addInputsValidation, formSubmitHandler } from '../utils/formHandler'
 
 const { inputs, button } = SignupFormData()
 

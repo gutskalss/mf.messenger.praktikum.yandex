@@ -7,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { EventBus } from '../utils/eventBus.js';
+import { EventBus } from "../utils/eventBus.js";
 export class Block {
     constructor(tagName = 'div', props = {}) {
         this.props = props;
