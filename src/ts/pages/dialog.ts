@@ -12,24 +12,42 @@ import { addDynamicModal } from '../utils/addDynamicModal'
 
 import { getChats } from '../api/index'
 
+const Handlebars = require('handlebars')
+
+type ChatData = {
+  avatar: {
+    link: string
+    alt: string
+  }
+  name?: string
+  own: boolean
+  lastMessage: string
+  time: string
+  unreaded: number
+  active: boolean
+}
+
 export class DialogPage extends Block {
   async render() {
     const dialogPageData = DialogPageData()
     const chats = await getChats()
     const chatItemTemplate = dialogPageData.chatsItem
 
-    const chatsRenderData = chats.reduce((acc, item) => {
-      const { title, id } = item
-      const readyItem = {
-        ...chatItemTemplate,
-        title,
-        id,
-      }
+    const chatsRenderData = chats.reduce(
+      (acc: ChatData[], item: { title: string; id: number }) => {
+        const { title, id } = item
+        const readyItem = {
+          ...chatItemTemplate,
+          title,
+          id,
+        }
 
-      acc = [...acc, readyItem]
+        acc = [...acc, readyItem]
 
-      return acc
-    }, [])
+        return acc
+      },
+      []
+    )
 
     const searchInput = new Input(dialogPageData.searchInput)
     const chatsList = new ChatsList({ chats: chatsRenderData })

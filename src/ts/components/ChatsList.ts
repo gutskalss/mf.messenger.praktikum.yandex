@@ -1,5 +1,7 @@
 import { Block, ComponentProps } from './Block'
 
+const Handlebars = require('handlebars')
+
 const template = Handlebars.compile(`
 <ul class="chats-list hide-scrollbar">
   {{#each chats}}

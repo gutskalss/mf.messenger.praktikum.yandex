@@ -1,4 +1,4 @@
-module.exports = api => {
+module.exports = (api) => {
   // Cache configuration is a required option
   api.cache(false)
 

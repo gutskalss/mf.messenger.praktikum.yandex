@@ -1,5 +1,7 @@
 import { Block, ComponentProps } from './Block'
 
+const Handlebars = require('handlebars')
+
 export const templateString = `
 <button
   {{#if dataToggleId}}

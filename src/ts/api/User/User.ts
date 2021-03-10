@@ -1,75 +1,91 @@
 import { HTTPTransport } from '../HTTPTransport/HTTPTransport'
 
 const baseURL = 'https://ya-praktikum.tech/api/v2/'
-
-export function changeUserProfile(data, redirectURL) {
+interface RequestResult {
+  ok: boolean
+  status: number
+  statusText: string
+  data: string
+  json: <T>() => T
+  headers: string
+  response?: [] | string
+}
+type ProfileData = {
+  first_name: string
+  second_name: string
+  display_name: string
+  login: string
+  email: string
+  phone: string
+}
+type ChangePasswordData = {
+  oldPassword: string
+  newPassword: string
+}
+export function changeUserProfile(data: ProfileData, redirectURL: string) {
   const request = new HTTPTransport()
   const url = `${baseURL}user/profile`
 
   request
     .put(url, { data: JSON.stringify(data) })
-    .then(result => {
+    .then((result: RequestResult) => {
       if (result.status === 200) {
         window.location.href = redirectURL
       } else {
-        const reason = JSON.parse(result.response).reason
+        const parsedResp = JSON.parse(result.response as string)
+        const reason = parsedResp.reason
         alert(reason)
       }
     })
-    .catch(err => console.error(err))
+    .catch((err) => console.error(err))
 }
 
-export function changeUserPassword(data, redirectURL) {
+export function changeUserPassword(
+  data: ChangePasswordData,
+  redirectURL: string
+) {
   const request = new HTTPTransport()
   const url = `${baseURL}user/password`
 
   request
     .put(url, { data: JSON.stringify(data) })
-    .then(result => {
+    .then((result: RequestResult) => {
       if (result.status === 200) {
         window.location.href = redirectURL
       } else {
-        const reason = JSON.parse(result.response).reason
+        const parsedResp = JSON.parse(result.response as string)
+        const reason = parsedResp.reason
         alert(reason)
       }
     })
-    .catch(err => console.error(err))
+    .catch((err) => console.error(err))
 }
 
-export function changeUserAvatar(data, redirectURL) {
+export function changeUserAvatar(redirectURL: string) {
   const request = new HTTPTransport()
   const url = `${baseURL}user/profile/avatar`
+  let files: FileList = <FileList>(
+    (<HTMLInputElement>document.getElementById('avatar')).files
+  )
 
-  const image = (<HTMLInputElement>document.getElementById('avatar')).files[0]
   const formData = new FormData()
-  formData.append('avatar', image)
+  formData.append('avatar', files.item(0)!)
 
   request
     .put(url, {
       data: formData,
-      headers: null,
+      headers: undefined,
     })
-    .then(result => {
+    .then((result: RequestResult) => {
       if (result.status === 200) {
         window.location.href = redirectURL
       } else {
-        const reason = JSON.parse(result.response).reason
+        const parsedResp = JSON.parse(result.response as string)
+        const reason = parsedResp.reason
         alert(reason)
       }
     })
     .catch(function (err) {
       throw err
     })
-
-  request
-    .put(url, { data: JSON.stringify(data) })
-    .then(result => {
-      if (result.status === 200) {
-        window.location.href = redirectURL
-      } else {
-        const reason = JSON.parse(result.response).reason
-        alert(reason)
-      }
-    })
-    .catch(err => console.error(err))
 }

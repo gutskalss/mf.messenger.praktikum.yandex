@@ -1,6 +1,8 @@
 import { Block, ComponentProps } from './Block'
 import { templateString as buttonTemplateString } from './Button'
 
+const Handlebars = require('handlebars')
+
 const template = Handlebars.compile(`
 <ul
   id="{{id}}"

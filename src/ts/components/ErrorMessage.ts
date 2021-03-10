@@ -1,5 +1,7 @@
 import { Block, ComponentProps } from './Block'
 
+const Handlebars = require('handlebars')
+
 const template = Handlebars.compile(`
 <div class="error-page">
   <div class="error-page__title">
@@ -10,8 +12,18 @@ const template = Handlebars.compile(`
 </div>
 `)
 
+type ErrorData = {
+  page500?: {
+    errorNumber: string
+    errorMessage: string
+  }
+  page404?: {
+    errorNumber: string
+    errorMessage: string
+  }
+}
 export class ErrorMessage extends Block {
-  constructor(public props: ComponentProps) {
+  constructor(public props: ComponentProps | ErrorData) {
     super('div', props)
   }
 

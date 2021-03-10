@@ -3,7 +3,7 @@ export function addMultipleListeners(
   events: string[],
   handler: (event: Event) => void
 ) {
-  events.forEach(event => {
+  events.forEach((event) => {
     element.addEventListener(event, handler)
   })
 }

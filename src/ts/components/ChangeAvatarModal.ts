@@ -3,6 +3,8 @@ import { Input } from './Input'
 import { Button } from './Button'
 import { ProfileData } from '../UIData/Profile'
 
+const Handlebars = require('handlebars')
+
 const { changeAvatar } = ProfileData()
 
 const inputTemplate = new Input(changeAvatar.input)

@@ -1,5 +1,7 @@
 import { Block, ComponentProps } from './Block'
 
+const Handlebars = require('handlebars')
+
 const template = Handlebars.compile(`
 {{#if inputs}}
   {{#each inputs}}

@@ -1,9 +1,39 @@
 import { render } from '../render'
+import { SigninPage } from '../../pages/signin'
+import { SignupPage } from '../../pages/signup'
+import { ProfilePage } from '../../pages/profile'
+import { ProfileEditPage } from '../../pages/profile-edit'
+import { ChangePasswordPage } from '../../pages/change-password'
+import { ChatsPage } from '../../pages/chats'
+import { DialogPage } from '../../pages/dialog'
+import { Error404Page } from '../../pages/404'
+import { Error500Page } from '../../pages/500'
+import { Block } from '../../components/Block'
+
+type ComponentClass =
+  | typeof Error500Page
+  | typeof Error404Page
+  | typeof SigninPage
+  | typeof SignupPage
+  | typeof ProfilePage
+  | typeof ProfileEditPage
+  | typeof ChangePasswordPage
+  | typeof ChatsPage
+  | typeof DialogPage
+type rootQuery = {
+  rootQuery: string
+}
 
 class Route {
   _pathname: string
 
-  constructor(pathname: string, view, props) {
+  _block: Block | null
+
+  _props: rootQuery
+
+  _blockClass: ComponentClass
+
+  constructor(pathname: string, view: ComponentClass, props: rootQuery) {
     this._pathname = pathname
     this._blockClass = view
     this._block = null
@@ -39,10 +69,15 @@ class Route {
 
 export class Router {
   private static __instance: Router
+
   routes: Route[] = []
+
   private history: History = window.history
+
   private _currentRoute: Route | null | undefined
+
   private _rootQuery: string = ''
+
   constructor(rootQuery: string) {
     if (Router.__instance) {
       return Router.__instance
@@ -56,7 +91,7 @@ export class Router {
     Router.__instance = this
   }
 
-  use(pathname: string, block) {
+  use(pathname: string, block: ComponentClass) {
     const route = new Route(pathname, block, { rootQuery: this._rootQuery })
     this.routes.push(route)
 
@@ -64,8 +99,8 @@ export class Router {
   }
 
   start() {
-    window.onpopstate = event => {
-      this._onRoute(event.currentTarget.location.pathname)
+    window.onpopstate = () => {
+      this._onRoute(window.location.pathname)
     }
 
     this._onRoute(window.location.pathname)
@@ -100,6 +135,6 @@ export class Router {
   }
 
   getRoute(pathname: string) {
-    return this.routes.find(route => route.match(pathname))
+    return this.routes.find((route) => route.match(pathname))
   }
 }

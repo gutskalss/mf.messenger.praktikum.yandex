@@ -1,5 +1,7 @@
 import { Block, ComponentProps } from './Block'
 
+const Handlebars = require('handlebars')
+
 const imageBaseURL = 'https://ya-praktikum.tech/'
 
 const template = Handlebars.compile(`

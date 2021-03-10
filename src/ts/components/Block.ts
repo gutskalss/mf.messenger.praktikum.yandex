@@ -50,6 +50,7 @@ export class Block {
   }
 
   _element: HTMLElement
+
   _meta: {
     tagName: string
     props: object
@@ -63,7 +64,7 @@ export class Block {
       tagName,
       props,
     }
-
+    // this._element='';
     this.props = this._makePropsProxy(props)
 
     this._registerEvents(this.eventBus as EventBus)
@@ -88,23 +89,29 @@ export class Block {
   }
 
   _componentDidMount() {
-    this.componentDidMount('')
+    //	this.componentDidMount('')
     this.eventBus.emit(Block.EVENTS.FLOW_RENDER)
   }
 
-  componentDidMount(oldProps: string) {}
+  // componentDidMount(oldProps: string) { }
 
-  _componentDidUpdate(oldProps: string, newProps: string) {
-    const response = this.componentDidUpdate(oldProps, newProps)
+  _componentDidUpdate() {
+    const response = this.componentDidUpdate()
+    return response
   }
 
-  componentDidUpdate(oldProps: string, newProps: string) {
+  // _componentDidUpdate(oldProps: TypeProps, newProps: TypeProps) {
+  // 	const response = this.componentDidUpdate(oldProps, newProps)
+  // }
+
+  // componentDidUpdate(oldProps: TypeProps, newProps: TypeProps) {
+  componentDidUpdate() {
     this._render()
 
     return true
   }
 
-  setProps = nextProps => {
+  setProps = (nextProps: string | boolean | number) => {
     if (!nextProps) {
       return
     }
@@ -116,10 +123,9 @@ export class Block {
     return this._element
   }
 
-  _render() {
-    const block: string = this.render()
-
-    ;(this._element as HTMLDivElement).innerHTML = block
+  async _render() {
+    const block = await this.render()
+    ;(this._element as HTMLElement).innerHTML = block
   }
 
   async render() {
@@ -132,10 +138,12 @@ export class Block {
 
   _makePropsProxy(props: object) {
     props = new Proxy(props, {
-      set: (target, prop, value) => {
-        const oldProps = { ...target }
+      set: (target: Record<string, string>, prop: string, value) => {
+        // const oldProps = { ...target }
         target[prop] = value
-        this.eventBus.emit(Block.EVENTS.FLOW_CDU, oldProps, target)
+        //	this.eventBus.emit(Block.EVENTS.FLOW_CDU, oldProps, target)
+        this.eventBus.emit(Block.EVENTS.FLOW_CDU)
+
         return true
       },
       deleteProperty() {

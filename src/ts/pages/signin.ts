@@ -4,9 +4,23 @@ import { Input } from '../components/Input'
 import { Button } from '../components/Button'
 import { addInputsValidation, formSubmitHandler } from '../utils/formHandler'
 
-const loginFormData = LoginFormData()
+const Handlebars = require('handlebars')
 
-const inputsTemplate = new Input({ inputs: loginFormData.inputs })
+const loginFormData = LoginFormData()
+type InputData = {
+  id: string
+  value: string
+  name: string
+  classList: string
+  type: string
+  placeholder: string
+  label: string
+  errorMessage: string
+  dataValidate: string
+}
+const inputsTemplate = new Input({
+  inputs: loginFormData.inputs as InputData[],
+})
 const buttonTemplate = new Button(loginFormData.button)
 
 const template = `

@@ -1,6 +1,7 @@
 import { addMultipleListeners } from './addMultipleListeners'
 import { sendRequest } from '../api/index'
 
+type StringIndexed = Record<string, any>
 const regexList = {
   login: /^.{3,12}$/,
   password: /^.{6,22}$/,
@@ -11,39 +12,35 @@ const regexList = {
 }
 
 export function formSubmitHandler() {
-  document.querySelectorAll('form').forEach(item => {
-    item.addEventListener('submit', function (event) {
+  document.querySelectorAll('form').forEach((item) => {
+    item.addEventListener('submit', (event) => {
       event.preventDefault()
       const data = serialize(event.target)
 
       if (validateForm(event.target as HTMLFormElement)) {
-        sendRequest(
-          event.target.dataset.requestName,
-          data,
-          event.target.dataset.redirectTo
-        )
+        const {
+          requestName,
+          redirectTo,
+        } = (event.target as HTMLElement)!.dataset
+        sendRequest(requestName!, data, redirectTo!)
       }
     })
   })
 }
 
 export function addInputsValidation() {
-  document.querySelectorAll('[data-validate').forEach(item => {
-    addMultipleListeners(
-      item as HTMLElement,
-      ['focus', 'blur'],
-      function (event) {
-        event.preventDefault()
-        validateInput(event.target as HTMLInputElement)
-      }
-    )
+  document.querySelectorAll('[data-validate').forEach((item) => {
+    addMultipleListeners(item as HTMLElement, ['focus', 'blur'], (event) => {
+      event.preventDefault()
+      validateInput(event.target as HTMLInputElement)
+    })
   })
 }
 
 function validateForm(form: HTMLFormElement) {
   let formIsValid: boolean = true
 
-  Array.from((<HTMLElement>form).querySelectorAll('input')).map(input => {
+  Array.from((<HTMLElement>form).querySelectorAll('input')).map((input) => {
     if (formIsValid && !validateInput(input)) {
       formIsValid = false
     } else {
@@ -55,10 +52,10 @@ function validateForm(form: HTMLFormElement) {
 }
 
 function validateInput(input: HTMLInputElement) {
-  const errorElement = input.parentNode.querySelector(
+  const errorElement = input.parentNode!.querySelector(
     '.input__error'
   ) as HTMLDivElement
-  const value = input.value
+  const { value } = input
 
   switch (input.dataset.validate) {
     case 'login':
@@ -82,15 +79,14 @@ function toggleError(element: HTMLElement, regex: RegExp, value: string) {
   if (!regex.test(value)) {
     element.classList.remove('hide')
     return false
-  } else {
-    element.classList.add('hide')
-    return true
   }
+  element.classList.add('hide')
+  return true
 }
 
 function serialize(form: EventTarget | null) {
   return Array.from((<HTMLElement>form).querySelectorAll('input')).reduce(
-    (acc: object, { value, name }): object => {
+    (acc: StringIndexed, { value, name }): object => {
       acc[name] = value
       return acc
     },

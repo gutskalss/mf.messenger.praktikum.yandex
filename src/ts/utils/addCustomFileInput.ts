@@ -17,11 +17,10 @@ function customFileInput(fileInputs: NodeListOf<Element>) {
 
       const filesJoined = files.join(', ')
 
-      if (this.parentNode.lastChild.nodeValue) {
-        return (this.parentNode.lastChild.nodeValue = filesJoined)
-      } else {
-        return this.parentNode.appendChild(document.createTextNode(filesJoined))
+      if (this.parentNode!.lastChild!.nodeValue) {
+        return (this.parentNode!.lastChild!.nodeValue = filesJoined)
       }
+      return this.parentNode!.appendChild(document.createTextNode(filesJoined))
     })
   }
 }

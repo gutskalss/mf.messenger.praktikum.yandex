@@ -1,4 +1,6 @@
-import { Block, ComponentProps } from './Block'
+import { Block } from './Block'
+
+const Handlebars = require('handlebars')
 
 const template = Handlebars.compile(`
 <ul class="profile__list">

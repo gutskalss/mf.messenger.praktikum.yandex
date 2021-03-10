@@ -1,8 +1,27 @@
 import { Block, ComponentProps } from './Block'
 
+const Handlebars = require('handlebars')
+
+type MessageDialog = {
+  messagesBlocks: {
+    type: string
+    date?: undefined | string
+    messages?:
+      | {
+          type?: string | undefined
+          url?: string | undefined
+          alt?: string | undefined
+          time?: string | undefined
+          read?: boolean
+          text?: undefined | string
+        }[]
+      | undefined
+  }[]
+}
+
 Handlebars.registerHelper(
   'ifType',
-  function (arg1: string, arg2: string, options) {
+  function (arg1: string, arg2: string, options: any) {
     return arg1 == arg2 ? options.fn(this) : options.inverse(this)
   }
 )
@@ -63,7 +82,7 @@ const template = Handlebars.compile(`
 `)
 
 export class Dialog extends Block {
-  constructor(public props: ComponentProps) {
+  constructor(public props: ComponentProps | MessageDialog) {
     super('div', props)
   }
 

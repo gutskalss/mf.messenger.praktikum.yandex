@@ -1,8 +1,7 @@
 {
-  // "include": ["node_modules/handlebars/types"],
   "compilerOptions": {
     "outDir": "build/js",
-    "rootDir": "src/ts",
+    "rootDir": "src",
     "removeComments": true,
     "target": "es6",
     "module": "es2015",
@@ -19,5 +18,6 @@
 				"transform": "@build-script/typescript-transformer-append-js-extension"
 			}
 		],
+		"typeRoots": ["./node_modules/@types"]
   },
 }

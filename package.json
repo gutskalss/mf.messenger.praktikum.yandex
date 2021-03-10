@@ -4,13 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "format": "prettier-eslint --write \"{,!(node_modules)/**/}*.{ts,tsx,js,jsx}\"",
     "test": "./node_modules/.bin/mocha",
-    "copy-static": "node scripts/copyStatic.js",
-    "scss:watch": "node-sass -w src/scss -o build/css",
-    "scss:build": "node-sass src/scss/styles.scss -o build/css",
-    "tsc:watch": "ttsc -w",
-    "start:server": "nodemon index.js",
-    "start": "concurrently \"npm run copy-static\" \"npm run scss:build\" \"npm run scss:watch\" \"npm run tsc:watch\" \"npm run start:server\""
+    "build": "webpack --mode production",
+    "start": "webpack serve"
   },
   "repository": {
     "type": "git",
@@ -31,22 +28,44 @@
     "@build-script/typescript-transformer-append-js-extension": "^1.0.1",
     "@build-script/typescript-transformer-dual-package": "^1.0.18",
     "@types/chai": "^4.2.15",
+    "@types/handlebars": "^4.1.0",
     "@types/mocha": "^8.2.1",
     "@types/node": "^14.14.31",
     "chai": "^4.3.0",
+    "clean-webpack-plugin": "^3.0.0",
     "concurrently": "^5.3.0",
+    "copy-webpack-plugin": "^8.0.0",
     "copyfiles": "^2.4.1",
+    "css-loader": "^5.0.2",
+    "eslint": "^7.21.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
     "express": "4.17.1",
-    "handlebars": "^4.7.7",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.2.0",
+    "mini-css-extract-plugin": "^1.3.8",
     "mocha": "^8.3.0",
     "mocha-jsdom": "^2.0.0",
     "node-sass": "^5.0.0",
     "nodemon": "^2.0.6",
+    "postcss-loader": "^5.1.0",
+    "prettier": "^2.2.1",
+    "prettier-eslint-cli": "^5.0.1",
+    "raw-loader": "^4.0.2",
+    "sass": "^1.32.8",
+    "sass-loader": "^11.0.1",
+    "stylelint-config-recommended": "^3.0.0",
+    "ts-loader": "^8.0.17",
+    "tsc-watch": "^4.2.9",
     "ttypescript": "^1.5.12",
-    "typescript": "^4.2.2"
+    "typescript": "^4.2.2",
+    "webpack": "^5.24.1",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
     "@types/chai-http": "^4.2.0",
-    "chai-http": "^4.3.0"
+    "chai-http": "^4.3.0",
+    "handlebars": "^4.7.7"
   }
 }

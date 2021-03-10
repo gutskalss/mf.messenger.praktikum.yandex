@@ -11,13 +11,15 @@ import { addInputsValidation, formSubmitHandler } from '../utils/formHandler'
 
 import { getUserInfo } from '../api/index'
 
+const Handlebars = require('handlebars')
+
 export class ProfilePage extends Block {
   async render() {
     const { data: profileDataList } = ProfileData()
     const profileServerData = await getUserInfo()
     const profileAvatarURL = profileServerData.avatar
 
-    profileDataList.forEach(item => {
+    profileDataList.forEach((item) => {
       item.value = profileServerData[item.name]
     })
 

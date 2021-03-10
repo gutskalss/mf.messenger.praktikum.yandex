@@ -1,22 +1,38 @@
 import { HTTPTransport } from '../HTTPTransport/HTTPTransport'
 
 const baseURL = 'https://ya-praktikum.tech/api/v2/'
-
-export function createChat(data, redirectURL) {
+interface RequestResult {
+  ok: boolean
+  status: number
+  statusText: string
+  data: string
+  json: <T>() => T
+  headers: string
+  response?: [] | string
+}
+type AddUserData = {
+  add_user: number[]
+  chatId: number
+}
+type CreateChatData = {
+  title: string
+}
+export function createChat(data: CreateChatData, redirectURL: string) {
   const request = new HTTPTransport()
   const url = `${baseURL}/chats`
 
   request
     .post(url, { data: JSON.stringify(data) })
-    .then(result => {
+    .then((result: RequestResult) => {
       if (result.status === 200) {
         window.location.href = redirectURL
       } else {
-        const reason = JSON.parse(result.response).reason
+        const parsedResp = JSON.parse(result.response as string)
+        const reason = parsedResp.reason
         alert(reason)
       }
     })
-    .catch(err => console.error(err))
+    .catch((err) => console.error(err))
 }
 
 export function getChats() {
@@ -25,35 +41,40 @@ export function getChats() {
 
   return request
     .get(url)
-    .then(result => {
+    .then((result: RequestResult) => {
       if (result.status === 200) {
-        return JSON.parse(result.response)
+        return JSON.parse(result.response as string)
       } else {
-        const reason = JSON.parse(result.response).reason
+        const parsedResp = JSON.parse(result.response as string)
+        const reason = parsedResp.reason
         alert(reason)
       }
     })
-    .catch(err => console.error(err))
+    .catch((err) => console.error(err))
+}
+type DeleteChatData = {
+  chatId: number
 }
 
-export function deleteChat(data, redirectURL) {
+export function deleteChat(data: DeleteChatData, redirectURL: string) {
   const request = new HTTPTransport()
   const url = `${baseURL}/chats`
 
   request
     .delete(url, { data: JSON.stringify(data) })
-    .then(result => {
+    .then((result: RequestResult) => {
       if (result.status === 200) {
         window.location.href = redirectURL
       } else {
-        const reason = JSON.parse(result.response).reason
+        const parsedResp = JSON.parse(result.response as string)
+        const reason = parsedResp.reason
         alert(reason)
       }
     })
-    .catch(err => console.error(err))
+    .catch((err) => console.error(err))
 }
 
-export function addUserToChat(data, redirectURL) {
+export function addUserToChat(data: AddUserData, redirectURL: string) {
   const request = new HTTPTransport()
   const url = `${baseURL}/chats/users`
   const { add_user, chatId } = data
@@ -64,19 +85,24 @@ export function addUserToChat(data, redirectURL) {
 
   request
     .put(url, { data: JSON.stringify(sendData) })
-    .then(result => {
+    .then((result: RequestResult) => {
       if (result.status === 200) {
         alert('Пользователь добавлен')
         window.location.href = redirectURL
       } else {
-        const reason = JSON.parse(result.response).reason
+        const parsedResp = JSON.parse(result.response as string)
+        const reason = parsedResp.reason
         alert(reason)
       }
     })
-    .catch(err => console.error(err))
+    .catch((err) => console.error(err))
 }
 
-export function deleteUserFromChat(data, redirectURL) {
+type DeleteUserData = {
+  remove_user: number
+  chatId: number
+}
+export function deleteUserFromChat(data: DeleteUserData, redirectURL: string) {
   const request = new HTTPTransport()
   const url = `${baseURL}/chats/users`
   const { remove_user, chatId } = data
@@ -87,13 +113,14 @@ export function deleteUserFromChat(data, redirectURL) {
 
   request
     .delete(url, { data: JSON.stringify(sendData) })
-    .then(result => {
+    .then((result: RequestResult) => {
       if (result.status === 200) {
         window.location.href = redirectURL
       } else {
-        const reason = JSON.parse(result.response).reason
+        const parsedResp = JSON.parse(result.response as string)
+        const reason = parsedResp.reason
         alert(reason)
       }
     })
-    .catch(err => console.error(err))
+    .catch((err) => console.error(err))
 }

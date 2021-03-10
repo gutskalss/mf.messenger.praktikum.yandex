@@ -11,6 +11,8 @@ import { addInputsValidation, formSubmitHandler } from '../utils/formHandler'
 
 import { getUserInfo } from '../api/index'
 
+const Handlebars = require('handlebars')
+
 export class ChangePasswordPage extends Block {
   async render() {
     const { changePasswordData, saveButton } = ProfileData()

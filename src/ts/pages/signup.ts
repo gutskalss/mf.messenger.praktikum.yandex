@@ -4,9 +4,23 @@ import { Input } from '../components/Input'
 import { Button } from '../components/Button'
 import { addInputsValidation, formSubmitHandler } from '../utils/formHandler'
 
+const Handlebars = require('handlebars')
+
 const { inputs, button } = SignupFormData()
 
-const inputsTemplate = new Input({ inputs })
+type InputData = {
+  id: string
+  value: string
+  name: string
+  classList: string
+  type: string
+  placeholder: string
+  label: string
+  errorMessage: string
+  dataValidate: string
+}
+
+const inputsTemplate = new Input({ inputs: inputs as InputData[] })
 const buttonTemplate = new Button(button)
 
 const template = `

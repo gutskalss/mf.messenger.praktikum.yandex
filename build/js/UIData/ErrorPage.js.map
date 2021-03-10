@@ -1,1 +1,0 @@
-{"version":3,"file":"ErrorPage.js","sourceRoot":"","sources":["../../../src/ts/UIData/ErrorPage.ts"],"names":[],"mappings":"AAAA,MAAM,UAAU,aAAa;IAC3B,OAAO;QACL,OAAO,EAAE;YACP,WAAW,EAAE,KAAK;YAClB,YAAY,EAAE,eAAe;SAC9B;QACD,OAAO,EAAE;YACP,WAAW,EAAE,KAAK;YAClB,YAAY,EAAE,gBAAgB;SAC/B;KACF,CAAA;AACH,CAAC"}
