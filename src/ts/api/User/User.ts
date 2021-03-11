@@ -1,6 +1,6 @@
 import { HTTPTransport } from '../HTTPTransport/HTTPTransport'
 
-const baseURL = 'https://ya-praktikum.tech/api/v2/'
+const host = 'https://ya-praktikum.tech/api/v2/'
 interface RequestResult {
   ok: boolean
   status: number
@@ -24,7 +24,7 @@ type ChangePasswordData = {
 }
 export function changeUserProfile(data: ProfileData, redirectURL: string) {
   const request = new HTTPTransport()
-  const url = `${baseURL}user/profile`
+  const url = `${host}user/profile`
 
   request
     .put(url, { data: JSON.stringify(data) })
@@ -45,7 +45,7 @@ export function changeUserPassword(
   redirectURL: string
 ) {
   const request = new HTTPTransport()
-  const url = `${baseURL}user/password`
+  const url = `${host}user/password`
 
   request
     .put(url, { data: JSON.stringify(data) })
@@ -63,7 +63,7 @@ export function changeUserPassword(
 
 export function changeUserAvatar(redirectURL: string) {
   const request = new HTTPTransport()
-  const url = `${baseURL}user/profile/avatar`
+  const url = `${host}user/profile/avatar`
   let files: FileList = <FileList>(
     (<HTMLInputElement>document.getElementById('avatar')).files
   )
@@ -74,7 +74,7 @@ export function changeUserAvatar(redirectURL: string) {
   request
     .put(url, {
       data: formData,
-      headers: undefined,
+      headers: null,
     })
     .then((result: RequestResult) => {
       if (result.status === 200) {

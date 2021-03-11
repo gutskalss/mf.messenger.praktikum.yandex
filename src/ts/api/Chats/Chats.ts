@@ -1,6 +1,6 @@
 import { HTTPTransport } from '../HTTPTransport/HTTPTransport'
 
-const baseURL = 'https://ya-praktikum.tech/api/v2/'
+const host = 'https://ya-praktikum.tech/api/v2/'
 interface RequestResult {
   ok: boolean
   status: number
@@ -19,7 +19,7 @@ type CreateChatData = {
 }
 export function createChat(data: CreateChatData, redirectURL: string) {
   const request = new HTTPTransport()
-  const url = `${baseURL}/chats`
+  const url = `${host}/chats`
 
   request
     .post(url, { data: JSON.stringify(data) })
@@ -37,7 +37,7 @@ export function createChat(data: CreateChatData, redirectURL: string) {
 
 export function getChats() {
   const request = new HTTPTransport()
-  const url = `${baseURL}/chats`
+  const url = `${host}/chats`
 
   return request
     .get(url)
@@ -58,7 +58,7 @@ type DeleteChatData = {
 
 export function deleteChat(data: DeleteChatData, redirectURL: string) {
   const request = new HTTPTransport()
-  const url = `${baseURL}/chats`
+  const url = `${host}/chats`
 
   request
     .delete(url, { data: JSON.stringify(data) })
@@ -76,7 +76,7 @@ export function deleteChat(data: DeleteChatData, redirectURL: string) {
 
 export function addUserToChat(data: AddUserData, redirectURL: string) {
   const request = new HTTPTransport()
-  const url = `${baseURL}/chats/users`
+  const url = `${host}/chats/users`
   const { add_user, chatId } = data
   const sendData = {
     users: [add_user],
@@ -104,7 +104,7 @@ type DeleteUserData = {
 }
 export function deleteUserFromChat(data: DeleteUserData, redirectURL: string) {
   const request = new HTTPTransport()
-  const url = `${baseURL}/chats/users`
+  const url = `${host}/chats/users`
   const { remove_user, chatId } = data
   const sendData = {
     users: [remove_user],

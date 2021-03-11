@@ -8,7 +8,7 @@ type Options = {
   data?: string | FormData
   timeout?: number
   formData?: object
-  headers?: { [key: string]: string }
+  headers?: { [key: string]: string } | null
   credentials?: string
   mode?: string
 }
@@ -57,7 +57,7 @@ export class HTTPTransport {
       const xhr = new XMLHttpRequest()
       xhr.open(method, url)
 
-      if (headers !== undefined) {
+      if (headers !== null) {
         Object.keys(mergedHeaders).forEach((key) => {
           xhr.setRequestHeader(key, mergedHeaders[key])
         })

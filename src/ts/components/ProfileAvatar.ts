@@ -2,12 +2,12 @@ import { Block, ComponentProps } from './Block'
 
 const Handlebars = require('handlebars')
 
-const imageBaseURL = 'https://ya-praktikum.tech/'
+const host = 'https://ya-praktikum.tech/'
 
 const template = Handlebars.compile(`
 <div data-toggle-id="changeAvatarModal" class="profile__avatar">
   {{#if profileAvatarURL}}
-  <img src="${imageBaseURL}{{profileAvatarURL}}" alt="#">
+  <img src="${host}{{profileAvatarURL}}" alt="#">
   {{else}}
     <i class="fas fa-camera"></i>
   {{/if}}

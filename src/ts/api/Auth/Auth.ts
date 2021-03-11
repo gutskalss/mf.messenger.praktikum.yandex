@@ -1,6 +1,6 @@
 import { HTTPTransport } from '../HTTPTransport/HTTPTransport'
 
-const baseURL = 'https://ya-praktikum.tech/api/v2/'
+const host = 'https://ya-praktikum.tech/api/v2/'
 
 interface RequestResult {
   ok: boolean
@@ -26,7 +26,7 @@ type SignupData = {
 
 export function signin(data: LoginData, redirectURL: string) {
   const request = new HTTPTransport()
-  const url = `${baseURL}/auth/signin`
+  const url = `${host}/auth/signin`
 
   request
     .post(url, { data: JSON.stringify(data) })
@@ -44,7 +44,7 @@ export function signin(data: LoginData, redirectURL: string) {
 
 export function signup(data: SignupData, redirectURL: string) {
   const request = new HTTPTransport()
-  const url = `${baseURL}/auth/signup`
+  const url = `${host}/auth/signup`
 
   request
     .post(url, { data: JSON.stringify(data) })
@@ -62,7 +62,7 @@ export function signup(data: SignupData, redirectURL: string) {
 
 export function logout(redirectURL: string) {
   const request = new HTTPTransport()
-  const url = `${baseURL}/auth/logout`
+  const url = `${host}/auth/logout`
 
   request
     .post(url)
@@ -80,7 +80,7 @@ export function logout(redirectURL: string) {
 
 export function getUserInfo() {
   const request = new HTTPTransport()
-  const url = `${baseURL}/auth/user`
+  const url = `${host}/auth/user`
 
   return request
     .get(url)

@@ -14,14 +14,14 @@ export function DialogPageData() {
     },
     chatsItem: {
       avatar: {
-        link: '/img/avatars/Andrei.jpg',
-        alt: 'Андрей',
+        link: '',
+        alt: '',
       },
       title: '',
       own: false,
-      lastMessage: 'Изображение',
-      time: '10:49',
-      unreaded: 12,
+      lastMessage: 'Last message',
+      time: '00:00',
+      unreaded: 0,
       active: false,
     },
 

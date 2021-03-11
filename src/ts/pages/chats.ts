@@ -30,6 +30,8 @@ export class ChatsPage extends Block {
     const chats = await getChats()
     const chatItemTemplate = dialogPageData.chatsItem
 
+    console.log(chats)
+
     const chatsRenderData = chats.reduce(
       (acc: ChatData[], item: { title: string; id: number }) => {
         const { title, id } = item
