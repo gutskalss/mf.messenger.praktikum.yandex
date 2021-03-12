@@ -13,6 +13,13 @@ const attachMethodsButton = new Button(dialogPageData.attachMethodsButton)
 const sendMessageButton = new Button(dialogPageData.sendMessageButton)
 const sendMessageInput = new Input(dialogPageData.sendMessageInput)
 
+type ChatItem = {
+  id: number
+  title: string
+  created_by: number
+  avatar: string | null
+}
+
 type MessageDialog = {
   messagesBlocks: {
     type: string
@@ -28,6 +35,7 @@ type MessageDialog = {
         }[]
       | undefined
   }[]
+  chat: ChatItem
 }
 
 Handlebars.registerHelper(

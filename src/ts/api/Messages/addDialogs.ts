@@ -5,6 +5,13 @@ import { getUserInfo, getChatToken, getChats } from '../index'
 
 const dialogPageData = DialogPageData()
 
+type ChatItem = {
+  id: number
+  title: string
+  created_by: number
+  avatar: string | null
+}
+
 export async function addDialogs() {
   const { id: userId } = await getUserInfo()
   const chats = await getChats()
@@ -14,7 +21,9 @@ export async function addDialogs() {
     const dialogContainer = document.querySelector('.chats__rside')
     const element = event.currentTarget as HTMLElement
     const chatId: string = element.dataset.selectChat!
-    const currentChat = chats.find((item) => item.id === parseInt(chatId))
+    const currentChat: ChatItem = chats.find(
+      (item: ChatItem) => item.id === parseInt(chatId)
+    )
     const { token: chatToken } = await getChatToken(chatId)
 
     const socket = new WebSocket(
@@ -71,11 +80,16 @@ export async function addDialogs() {
           chat: currentChat,
         })
 
-        dialogContainer?.innerHTML = dialog.render()
+        dialogContainer!.innerHTML = dialog.render()
 
-        document.forms.sendMessage.onsubmit = (event) => {
+        const formSendMessage = document.getElementById('sendMessage')!
+
+        formSendMessage.addEventListener('submit', (event: Event) => {
           event.preventDefault()
-          const message = event.target.message.value
+          const messageValue = document.getElementById(
+            'message'
+          ) as HTMLInputElement
+          const message = messageValue.value as string
 
           socket.send(
             JSON.stringify({
@@ -84,8 +98,8 @@ export async function addDialogs() {
             })
           )
 
-          event.target.message.value = ''
-        }
+          messageValue.value = ''
+        })
       }
 
       if (message.type === 'message') {
@@ -126,8 +140,8 @@ export async function addDialogs() {
       }
     })
 
-    socket.addEventListener('error', (event) => {
-      console.log('Ошибка', event.message)
+    socket.addEventListener('error', (event: ErrorEvent) => {
+      console.log('Ошибка', event.message as string)
     })
   }
 
