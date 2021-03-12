@@ -2,19 +2,31 @@
 
 ## Description
 
-Messenger on vanilla JS.
+Messenger on vanilla JS/TS.
 
-## Install and start
+## Requirements
+
+NodeJS
+
+## Install
 
 ```sh
 npm install
 ```
+
+## Start
 
 ```sh
 npm start
 ```
 
 Open http://localhost:3000 and enjoy
+
+## Build
+
+```sh
+npm run build
+```
 
 ## Demo on [netlify](https://bestmessenger.netlify.app/)
 
