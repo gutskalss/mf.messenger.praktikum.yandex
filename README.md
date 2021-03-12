@@ -22,8 +22,7 @@ Pages:
 
 - [Login](https://bestmessenger.netlify.app/)
 - [Signup](https://bestmessenger.netlify.app/signup)
-- [Chats list](https://bestmessenger.netlify.app/chats)
-- [Dialog](https://bestmessenger.netlify.app/dialog)
+- [Dialogs](https://bestmessenger.netlify.app/dialog)
 - [Profile](https://bestmessenger.netlify.app/profile)
 - [Edit profile](https://bestmessenger.netlify.app/profile-edit)
 - [Change password](https://bestmessenger.netlify.app/change-password)
