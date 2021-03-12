@@ -110,7 +110,7 @@ const template = Handlebars.compile(`
   </div>
 
   <div class="dialog__bottom-bar">
-    <form id="sendMessage" class="dialog__create-message-form" data-chat-id="{{chat.id}}">
+    <form autocomplete="off" id="sendMessage" class="dialog__create-message-form" data-chat-id="{{chat.id}}">
       ${attachMethodsMenu.render()}
       ${attachMethodsButton.render()}
       <div class="dialog__new-message-input">
