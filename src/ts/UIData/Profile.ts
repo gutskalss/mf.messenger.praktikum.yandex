@@ -2,18 +2,11 @@ export function ProfileData() {
   return {
     data: [
       {
-        name: 'email',
+        name: 'id',
         value: '',
-        label: 'Почта',
-        type: 'email',
-        id: 'email',
-      },
-      {
-        name: 'login',
-        value: '',
-        label: 'Логин',
+        label: 'ID',
         type: 'text',
-        id: 'login',
+        id: 'id',
       },
       {
         name: 'first_name',
@@ -28,6 +21,20 @@ export function ProfileData() {
         label: 'Фамилия',
         type: 'text',
         id: 'second_name',
+      },
+      {
+        name: 'email',
+        value: '',
+        label: 'Почта',
+        type: 'email',
+        id: 'email',
+      },
+      {
+        name: 'login',
+        value: '',
+        label: 'Логин',
+        type: 'text',
+        id: 'login',
       },
       {
         name: 'display_name',

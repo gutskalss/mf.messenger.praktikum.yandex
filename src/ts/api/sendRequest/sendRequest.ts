@@ -72,8 +72,6 @@ export function sendRequest(
       break
     case 'changeUserAvatar':
       changeUserAvatar(redirectURL)
-      // changeUserAvatar(data, redirectURL)
-
       break
     case 'createChat':
       createChat(data as CreateChatData, redirectURL)

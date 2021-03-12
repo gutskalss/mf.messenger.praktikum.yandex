@@ -42,7 +42,7 @@ export class ProfileEditPage extends Block {
           <div class="profile__data">
             ${profileAvatar.render()}
 
-            <div class="profile__name">Сергей</div>
+            <div class="profile__name"></div>
 
             <form data-request-name="changeUserProfile" data-redirect-to="/profile" class="form_profile-edit" action="#">
               ${changeProfileInputs.render()}

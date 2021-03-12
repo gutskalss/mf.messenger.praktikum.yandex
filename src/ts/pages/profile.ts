@@ -27,7 +27,7 @@ export class ProfilePage extends Block {
 
     const sidebarButtonTemplate = new Button({
       template: 'sidebar',
-      backLink: '/chats',
+      backLink: '/dialog',
     })
 
     const profileAvatar = new ProfileAvatar({ profileAvatarURL })
@@ -40,7 +40,7 @@ export class ProfilePage extends Block {
         <div class="profile__container hide-scrollbar">
           <div class="profile__data">
             ${profileAvatar.render()}
-            <div class="profile__name">Сергей</div>
+            <div class="profile__name"></div>
 
             ${profileDataListTemplate.render()}
 

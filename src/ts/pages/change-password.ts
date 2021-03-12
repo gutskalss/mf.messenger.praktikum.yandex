@@ -38,7 +38,7 @@ export class ChangePasswordPage extends Block {
           <div class="profile__data">
             ${profileAvatar.render()}
 
-            <div class="profile__name">Сергей</div>
+            <div class="profile__name"></div>
 
             <form data-request-name="changeUserPassword" data-redirect-to="/profile" class="form_profile-edit">
               ${changePasswordInputs.render()}

@@ -11,19 +11,11 @@ interface RequestResult {
   headers: string
   response?: [] | string | undefined
 }
+
 type LoginData = {
   login: string
   password: string
 }
-type SignupData = {
-  first_name: string
-  second_name: string
-  login: string
-  email: string
-  password: string
-  phone: string
-}
-
 export function signin(data: LoginData, redirectURL: string) {
   const request = new HTTPTransport()
   const url = `${host}/auth/signin`
@@ -42,6 +34,14 @@ export function signin(data: LoginData, redirectURL: string) {
     .catch((err) => console.error(err))
 }
 
+type SignupData = {
+  first_name: string
+  second_name: string
+  login: string
+  email: string
+  password: string
+  phone: string
+}
 export function signup(data: SignupData, redirectURL: string) {
   const request = new HTTPTransport()
   const url = `${host}/auth/signup`

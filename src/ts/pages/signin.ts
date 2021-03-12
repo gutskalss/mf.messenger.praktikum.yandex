@@ -25,7 +25,7 @@ const inputsTemplate = new Input({
 const buttonTemplate = new Button(loginFormData.button)
 
 const template = `
-<form data-request-name="signin" data-redirect-to="/chats" class="form">
+<form data-request-name="signin" data-redirect-to="/dialog" class="form">
   <div class="form__top">
     <h2 class="h2">Вход</h2>
     ${inputsTemplate.render()}

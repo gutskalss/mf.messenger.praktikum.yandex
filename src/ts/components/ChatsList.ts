@@ -6,7 +6,7 @@ const template = Handlebars.compile(`
 <ul class="chats-list hide-scrollbar">
   {{#each chats}}
     <li class="chat-item">
-      <div class="chat-item__content {{#if active}}chat-item__content_active{{/if}}">
+      <div data-select-chat="{{id}}" class="chat-item__content {{#if active}}chat-item__content_active{{/if}}">
         <div class="chat-item__logo">
           <img src="{{avatar.link}}" alt="{{avatar.alt}}" />
         </div>

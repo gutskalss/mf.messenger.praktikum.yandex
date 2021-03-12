@@ -1,6 +1,7 @@
 import { HTTPTransport } from '../HTTPTransport/HTTPTransport'
 
 const host = 'https://ya-praktikum.tech/api/v2/'
+
 interface RequestResult {
   ok: boolean
   status: number
@@ -10,10 +11,7 @@ interface RequestResult {
   headers: string
   response?: [] | string
 }
-type AddUserData = {
-  add_user: number[]
-  chatId: number
-}
+
 type CreateChatData = {
   title: string
 }
@@ -52,10 +50,10 @@ export function getChats() {
     })
     .catch((err) => console.error(err))
 }
+
 type DeleteChatData = {
   chatId: number
 }
-
 export function deleteChat(data: DeleteChatData, redirectURL: string) {
   const request = new HTTPTransport()
   const url = `${host}/chats`
@@ -74,6 +72,10 @@ export function deleteChat(data: DeleteChatData, redirectURL: string) {
     .catch((err) => console.error(err))
 }
 
+type AddUserData = {
+  add_user: number[]
+  chatId: number
+}
 export function addUserToChat(data: AddUserData, redirectURL: string) {
   const request = new HTTPTransport()
   const url = `${host}/chats/users`

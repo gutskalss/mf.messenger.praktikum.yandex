@@ -2,6 +2,10 @@ import { Block, ComponentProps } from './Block'
 
 const Handlebars = require('handlebars')
 
+Handlebars.registerHelper('isId', function (value: string) {
+  return value === 'id'
+})
+
 const template = Handlebars.compile(`
 {{#if inputs}}
   {{#each inputs}}
@@ -44,13 +48,18 @@ const profileTemplate = Handlebars.compile(`
         {{this.label}}
       </label>
       <div class="profile__data-value">
-        <input
-          type="{{this.type}}"
-          class="input_profile-edit"
-          value="{{this.value}}"
-          id="{{this.id}}"
-          name="{{this.name}}"
-        />
+        {{#if (isId this.name)}}
+          {{this.value}}
+        {{else}}
+          <input
+            type="{{this.type}}"
+            class="input_profile-edit"
+            value="{{this.value}}"
+            id="{{this.id}}"
+            name="{{this.name}}"
+          />
+        {{/if}}
+
       </div>
     </li>
   {{/each}}

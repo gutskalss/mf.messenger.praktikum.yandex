@@ -24,7 +24,7 @@ const inputsTemplate = new Input({ inputs: inputs as InputData[] })
 const buttonTemplate = new Button(button)
 
 const template = `
-<form data-request-name="signup" data-redirect-to="/chats" class="form">
+<form data-request-name="signup" data-redirect-to="/dialog" class="form">
   <div class="form__top">
     <h2 class="h2">Регистрация</h2>
     ${inputsTemplate.render()}

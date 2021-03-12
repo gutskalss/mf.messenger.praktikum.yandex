@@ -1,6 +1,7 @@
 import { HTTPTransport } from '../HTTPTransport/HTTPTransport'
 
 const host = 'https://ya-praktikum.tech/api/v2/'
+
 interface RequestResult {
   ok: boolean
   status: number
@@ -10,6 +11,7 @@ interface RequestResult {
   headers: string
   response?: [] | string
 }
+
 type ProfileData = {
   first_name: string
   second_name: string
@@ -17,10 +19,6 @@ type ProfileData = {
   login: string
   email: string
   phone: string
-}
-type ChangePasswordData = {
-  oldPassword: string
-  newPassword: string
 }
 export function changeUserProfile(data: ProfileData, redirectURL: string) {
   const request = new HTTPTransport()
@@ -40,6 +38,10 @@ export function changeUserProfile(data: ProfileData, redirectURL: string) {
     .catch((err) => console.error(err))
 }
 
+type ChangePasswordData = {
+  oldPassword: string
+  newPassword: string
+}
 export function changeUserPassword(
   data: ChangePasswordData,
   redirectURL: string

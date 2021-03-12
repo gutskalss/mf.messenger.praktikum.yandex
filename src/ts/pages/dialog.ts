@@ -3,12 +3,11 @@ import { DialogPageData } from '../UIData/DialogPage'
 import { Input } from '../components/Input'
 import { ChatsList } from '../components/ChatsList'
 import { Button } from '../components/Button'
-import { ButtonsMenu } from '../components/ButtonsMenu'
-import { Dialog } from '../components/Dialog'
 import { closeModalOnOutClick } from '../utils/closeModalOnOutClick'
 import { toggleElements } from '../utils/toggleElements'
 import { addInputsValidation, formSubmitHandler } from '../utils/formHandler'
 import { addDynamicModal } from '../utils/addDynamicModal'
+import { addDialogs } from '../api/index'
 
 import { getChats } from '../api/index'
 
@@ -57,12 +56,6 @@ export class DialogPage extends Block {
     //   dialogPageData.settingsButtonsMenu
     // )
 
-    const attachMethodsMenu = new ButtonsMenu(dialogPageData.attachMethodsMenu)
-    const dialog = new Dialog({ messagesBlocks: dialogPageData.dialog })
-    const attachMethodsButton = new Button(dialogPageData.attachMethodsButton)
-    const sendMessageButton = new Button(dialogPageData.sendMessageButton)
-    const sendMessageInput = new Input(dialogPageData.sendMessageInput)
-
     const addUserInput = new Input(dialogPageData.addUserInput)
     const deleteUserInput = new Input(dialogPageData.deleteUserInput)
     const addUserButton = new Button(dialogPageData.addUserButton)
@@ -94,31 +87,9 @@ export class DialogPage extends Block {
           </div>
           ${chatsList.render()}
         </div>
+
         <div class="chats__rside">
-          <div class="dialog">
-            <div class="dialog__top-bar">
-              <div class="dialog__title">
-                <div class="dialog__avatar">
-                  <img src="/img/avatars/Vadim.jpg" alt="Вадим" />
-                </div>
-                <div class="dialog__name">Вадим</div>
-              </div>
-              
-            </div>
-
-            ${dialog.render()}
-
-            <div class="dialog__bottom-bar">
-              <form class="dialog__create-message-form" action="#">
-                ${attachMethodsMenu.render()}
-                ${attachMethodsButton.render()}
-                <div class="dialog__new-message-input">
-                  ${sendMessageInput.render()}
-                </div>
-                ${sendMessageButton.render()}
-              </form>
-            </div>
-          </div>
+          <p>Выберите чат чтобы отправить сообщение</p>
         </div>
       </div>
 
@@ -182,11 +153,12 @@ export class DialogPage extends Block {
     return pageTemplate()
   }
 
-  addEvents() {
+  async addEvents() {
     toggleElements()
     closeModalOnOutClick()
     addInputsValidation()
     formSubmitHandler()
     addDynamicModal()
+    addDialogs()
   }
 }
