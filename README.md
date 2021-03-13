@@ -28,6 +28,6 @@ Open http://localhost:3000 and enjoy
 npm run build
 ```
 
-## Demo on [netlify](https://bestmessenger.netlify.app/)
+## Demo on [heroku](https://bbbest-messanger.herokuapp.com/)
 
 ## Layouts [link](https://www.figma.com/file/24EUnEHGEDNLdOcxg7ULwV/Chat?node-id=0%3A1)
