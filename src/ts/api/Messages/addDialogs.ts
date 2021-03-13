@@ -5,12 +5,12 @@ import { getUserInfo, getChatToken, getChats } from '../index'
 
 const dialogPageData = DialogPageData()
 
-type ChatItem = {
-  id: number
-  title: string
-  created_by: number
-  avatar: string | null
-}
+// type ChatItem = {
+//   id: number
+//   title: string
+//   created_by: number
+//   avatar: string | null
+// }
 
 export async function addDialogs() {
   const { id: userId } = await getUserInfo()
