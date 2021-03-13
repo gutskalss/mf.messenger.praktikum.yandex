@@ -1,5 +1,7 @@
 # Best Messenger
 
+## Demo on [heroku](https://bbbest-messanger.herokuapp.com/)
+
 ## Description
 
 Messenger on vanilla JS/TS.
@@ -27,7 +29,5 @@ Open http://localhost:3000 and enjoy
 ```sh
 npm run build
 ```
-
-## Demo on [heroku](https://bbbest-messanger.herokuapp.com/)
 
 ## Layouts [link](https://www.figma.com/file/24EUnEHGEDNLdOcxg7ULwV/Chat?node-id=0%3A1)
