@@ -5,6 +5,7 @@
 ## Description
 
 Messenger on vanilla JS/TS.
+Features: sign in, sign up, profile editing, chatting
 
 ## Requirements
 
